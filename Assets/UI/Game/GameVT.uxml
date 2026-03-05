@@ -13,10 +13,10 @@
                     <ui:ScrollView/>
                 </ui:VisualElement>
                 <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(210, 0, 60); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;);">
-                    <ui:Button text="Button" name="CreatureClick" style="position: absolute; top: 0; height: auto; width: auto; left: 0; bottom: 0; right: 0; cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;);"/>
-                    <ui:VisualElement name="CreatureClickEffects" class="overlay" style="flex-grow: 1; background-color: rgb(0, 0, 255);"/>
+                    <ui:VisualElement name="CreatureClickEffects" class="overlay" style="flex-grow: 1; background-color: rgb(54, 54, 67);"/>
                     <ui:ProgressBar value="22" title="Catch Progress"/>
                     <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#Remove@2x" style="height: 440px; width: 408px; align-self: center;"/>
+                    <ui:Button text="Click Zone" name="CreatureClick" style="position: absolute; top: 0; height: auto; width: auto; left: 0; bottom: 0; right: 0; cursor: initial; background-color: rgba(188, 188, 188, 0);"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="StaffContainer" class="subcontainers" style="flex-grow: 1; background-color: rgb(127, 255, 124);"/>
             </ui:VisualElement>

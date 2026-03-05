@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public partial class CreatureManager : MonoBehaviour //handles creatures
+public class CreatureManager : MonoBehaviour //handles creatures
 {
     /*
     To-Do list
@@ -42,10 +42,16 @@ public partial class CreatureManager : MonoBehaviour //handles creatures
     }
 
     public void CreatureSpawn()
-    {}
+    {
+        //uses random creature
+        //change icon and name of UI to current creature
+        
+    }
 
     public void CreatureDespawn()
-    {}
+    {
+        //strip the creature ui to default
+    }
 
 
 }

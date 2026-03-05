@@ -14,10 +14,10 @@ public class GameEvents : MonoBehaviour //handles UI input
    void OnEnable()
    {
         UIDocGame = GameObject.Find("GameUI").GetComponent<UIDocument>(); //grab UIDocument
-        resourceLabel = UIDocGame.rootVisualElement.Q<Label>("Resource"); //grab resource Label
+        resourceLabel = UIDocGame.rootVisualElement.Q<Label>("Number"); //grab resource Label
         
         UIButton = UIDocGame.rootVisualElement.Q("CreatureClick");
-        UIButton.RegisterCallback<PointerDownEvent>(OnCreatureClick);
+        UIButton.RegisterCallback<ClickEvent>(OnCreatureClick);
 
         Debug.Log("OnEnable Go");
    }
@@ -27,7 +27,7 @@ public class GameEvents : MonoBehaviour //handles UI input
 
     }
 
-   void OnCreatureClick(PointerDownEvent evt) //speak to CreatureEventManager, but for now will just add numbers on click
+   void OnCreatureClick(ClickEvent evt) //speak to CreatureEventManager, but for now will just add numbers on click
    {
     ResourceNum++;
     resourceLabel.text = ("Score: " + ResourceNum.ToString());
