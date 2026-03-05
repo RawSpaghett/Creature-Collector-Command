@@ -25,7 +25,6 @@ public class ResourceManager : MonoBehaviour
         {ResourceType.GCreatures,0f}, //total green creaturess
         {ResourceType.Prestige,0f} //total prestige currency
     };
-
     //=================================
 
 

@@ -1,9 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game/GameStyleSheet.uss?fileID=7433441132597879392&amp;guid=425b8c245f03244e6a36161582fd4a92&amp;type=3#GameStyleSheet"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
+        <ui:VisualElement name="ResourceContainer" class="header resourcecontainer" style="flex-grow: 1; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgb(108, 31, 31); aspect-ratio: auto; max-height: 75px;">
+            <ui:VisualElement name="Resource" class="resource" style="flex-grow: 1; flex-direction: row;">
+                <ui:Image name="ResourceIcon" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext" style="width: 73px; height: 52px;"/>
+                <ui:Label text="NUMBER" name="Number" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
+            <ui:VisualElement name="GameContainer" class="container" style="flex-grow: 1; background-color: rgba(121, 0, 125, 0);">
+                <ui:VisualElement name="Upgrades" class="subcontainers" style="flex-grow: 1; align-items: auto; align-self: auto; align-content: auto; background-color: rgb(202, 80, 0);">
+                    <ui:ScrollView/>
+                </ui:VisualElement>
+                <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(210, 0, 60); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;);">
+                    <ui:Button text="Button" name="CreatureClick" style="position: absolute; top: 0; height: auto; width: auto; left: 0; bottom: 0; right: 0; cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;);"/>
+                    <ui:VisualElement name="CreatureClickEffects" class="overlay" style="flex-grow: 1; background-color: rgb(0, 0, 255);"/>
+                    <ui:ProgressBar value="22" title="Catch Progress"/>
+                    <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#Remove@2x" style="height: 440px; width: 408px; align-self: center;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="StaffContainer" class="subcontainers" style="flex-grow: 1; background-color: rgb(127, 255, 124);"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

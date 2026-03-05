@@ -1,16 +1,37 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+using System.Collections.Generic;
+using System.Linq;
 
-public class GameEvents : MonoBehaviour
+public class GameEvents : MonoBehaviour //handles UI input
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private UIDocument UIDocGame; // references our main menu doc
+    private VisualElement UIButton;
+    private Label resourceLabel;
+    public int ResourceNum = 0;
+
+   
+   void OnEnable()
+   {
+        UIDocGame = GameObject.Find("GameUI").GetComponent<UIDocument>(); //grab UIDocument
+        resourceLabel = UIDocGame.rootVisualElement.Q<Label>("Resource"); //grab resource Label
         
+        UIButton = UIDocGame.rootVisualElement.Q("CreatureClick");
+        UIButton.RegisterCallback<PointerDownEvent>(OnCreatureClick);
+
+        Debug.Log("OnEnable Go");
+   }
+
+   private void OnDisable() //deregisters, good habit
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   void OnCreatureClick(PointerDownEvent evt) //speak to CreatureEventManager, but for now will just add numbers on click
+   {
+    ResourceNum++;
+    resourceLabel.text = ("Score: " + ResourceNum.ToString());
+    Debug.Log("OnClick Go");
+   }
+
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public partial class CreatureManager : MonoBehaviour
+public partial class CreatureManager : MonoBehaviour //handles creatures
 {
     /*
     To-Do list
