@@ -2,6 +2,9 @@
 }
 
 .header {
+    align-self: center;
 }
 
-
+.button {
+    align-self: center;
+}
