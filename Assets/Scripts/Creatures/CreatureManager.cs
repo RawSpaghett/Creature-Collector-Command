@@ -5,7 +5,6 @@ public class CreatureManager : MonoBehaviour //handles creatures
 {
     /*
     To-Do list
-     - Handle creature spawn Chance via rarity
      - Handle Creature spawning and despawning
     */
 
@@ -37,8 +36,44 @@ public class CreatureManager : MonoBehaviour //handles creatures
 
     public Creature RandomCreature(List<Creature> AllCreatures)
     {
-        Creature randomCreature = null;
-        return randomCreature;
+        if (AllCreatures.Count == 0)
+            return null;
+
+        // Roll a rarity using the weighted odds
+        float totalWeight = 0f;
+        foreach (KeyValuePair<CreatureRarity, float> kvp in RarityOdds)
+            totalWeight += kvp.Value;
+
+        float roll = Random.Range(0f, totalWeight);
+        float runningTotal = 0f;
+        CreatureRarity chosenRarity = CreatureRarity.Common;
+
+        foreach (KeyValuePair<CreatureRarity, float> kvp in RarityOdds)
+        {
+            runningTotal += kvp.Value;
+            if (roll <= runningTotal)
+            {
+                chosenRarity = kvp.Key;
+                break;
+            }
+        }
+
+        // Grab only creatures that match the rolled rarity
+        List<Creature> filtered = new List<Creature>();
+        for (int i = 0; i < AllCreatures.Count; i++)
+        {
+            if (AllCreatures[i].rarity == chosenRarity)
+                filtered.Add(AllCreatures[i]);
+        }
+
+        // Fallback if no creatures exist at that rarity
+        if (filtered.Count == 0)
+        {
+            Debug.Log("no " + chosenRarity + " creatures, picking random");
+            return AllCreatures[Random.Range(0, AllCreatures.Count)];
+        }
+
+        return filtered[Random.Range(0, filtered.Count)];
     }
 
     public void CreatureSpawn()
@@ -52,6 +87,5 @@ public class CreatureManager : MonoBehaviour //handles creatures
     {
         //strip the creature ui to default
     }
-
-
+    
 }

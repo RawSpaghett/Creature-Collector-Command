@@ -15,8 +15,8 @@ MonoBehaviour:
   creatureName: Example Blue
   description: 
   rarity: 0
-  type: 0
-  CatchDifficulty: 0
+  type: 1
+  CatchDifficulty: 10
   EscapeChance: 0
   CroinWorth: 0
   CroinChance: 0
