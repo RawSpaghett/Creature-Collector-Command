@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   rarity: 0
   type: 0
-  CatchDifficulty: 0
+  CatchDifficulty: 10
   EscapeChance: 0
   CroinWorth: 0
   CroinChance: 0

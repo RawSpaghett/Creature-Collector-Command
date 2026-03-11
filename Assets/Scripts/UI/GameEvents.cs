@@ -9,6 +9,7 @@ public class GameEvents : MonoBehaviour //handles UI input
     private VisualElement UIButton;
     private Label resourceLabel;
     public int ResourceNum = 0;
+    public GameManager gameManager;
 
    
    void OnEnable()
@@ -31,6 +32,7 @@ public class GameEvents : MonoBehaviour //handles UI input
    {
     ResourceNum++;
     resourceLabel.text = ("Score: " + ResourceNum.ToString());
+    gameManager.OnCatchClick();
     Debug.Log("OnClick Go");
    }
 
