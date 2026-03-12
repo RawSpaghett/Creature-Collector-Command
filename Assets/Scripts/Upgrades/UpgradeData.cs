@@ -20,11 +20,10 @@ public enum Target
     PopulationDensityB
 }
 
-public struct UpgradeEffect
+public struct UpgradeEffect //structure of the upgrade effects
 {
     public float Multiplier;
     public Target Target;
-
     public UpgradeEffect ( float multiplier, Target target)
     {
         Multiplier = multiplier;
