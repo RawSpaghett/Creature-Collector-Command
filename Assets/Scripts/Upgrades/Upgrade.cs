@@ -16,4 +16,9 @@ public class Upgrade
         Tier = tier;
         State = state;
     }
+
+    public void SetState(UpgradeState newState)
+    {
+        State = newState;
+    }
 }

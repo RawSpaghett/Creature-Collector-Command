@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Progress bar catch system. Each click fills the bar, rarer creatures need more clicks.
+/// Handles the catch progress bar. Click to fill, rarer creatures take more clicks.
 /// </summary>
 public partial class GameManager
 {
@@ -23,7 +23,7 @@ public partial class GameManager
         }
     }
 
-    // Picks a random creature and sets the catch requirements based on rarity.
+    // Picks a random creature and sets the catch requirements based on rarity
     public void StartNewCatch()
     {
         currentCreature = creatureManager.RandomCreature(creatureManager.AllCreatures);
@@ -45,9 +45,9 @@ public partial class GameManager
         if (!catchActive || currentCreature == null)
             return;
 
-        catchProgress += clickPower;
-        Debug.Log("click +" + clickPower + ", " + catchProgress + "/" + progressNeeded);
-        // TODO: still need to finalize formula 
+        catchProgress += 1f;
+        Debug.Log("click +1, " + catchProgress + "/" + progressNeeded);
+        //TODO: finalize click power formula
 
         if (catchProgress >= progressNeeded)
             CompleteCatch();
@@ -74,11 +74,11 @@ public partial class GameManager
             resourceManager.AddResource(colorToResource[currentCreature.type], 1f);
         resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, 1f);
 
-        // Croin drop based on creature's chance + player bonus
-        float croinChance = currentCreature.CroinChance + croinChanceBonus;
+        // Croin drop with gold gain multiplier applied
+        float croinChance = currentCreature.CroinChance;
         if (Random.Range(0f, 1f) <= croinChance)
         {
-            float croinDrop = currentCreature.CroinWorth * (1f + croinAmountBonus);
+            float croinDrop = ApplyUpgrade(currentCreature.CroinWorth, Target.GoldGain);
             resourceManager.AddResource(ResourceManager.ResourceType.Croins, croinDrop);
             Debug.Log("+" + croinDrop + " croins");
         }

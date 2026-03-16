@@ -30,10 +30,17 @@ public partial class GameManager : MonoBehaviour
         { CreatureManager.CreatureType.GreenCreature, ResourceManager.ResourceType.GCreatures }
     };
 
+    // Maps color to its catch rate upgrade target
+    private static readonly Dictionary<CreatureManager.CreatureType, Target> colorToCatchTarget =
+        new Dictionary<CreatureManager.CreatureType, Target>()
+    {
+        { CreatureManager.CreatureType.RedCreature, Target.CatchRateR },
+        { CreatureManager.CreatureType.BlueCreature, Target.CatchRateB },
+        { CreatureManager.CreatureType.GreenCreature, Target.CatchRateG }
+    };
+
     private void Start()
     {
-        InitializeUpgrades();
-
         // Set all catcher timers to the base interval
         foreach (CreatureManager.CreatureType color in catchers.Keys)
             catchTimers[color] = BASE_CATCH_INTERVAL;
@@ -67,7 +74,8 @@ public partial class GameManager : MonoBehaviour
             catchTimers[color] -= deltaTime;
             if (catchTimers[color] <= 0f)
             {
-                float creatures = catchers[color] * 1f;
+                // Base amount scaled by any purchased catch rate upgrades for this color
+                float creatures = ApplyUpgrade(catchers[color], colorToCatchTarget[color]);
                 resourceManager.AddResource(colorToResource[color], creatures);
                 resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, creatures);
                 catchTimers[color] = BASE_CATCH_INTERVAL;
