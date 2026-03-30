@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f14e13deb86e4e71bfe02ea41995dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  resourceManager: {fileID: 0}
 --- !u!4 &36575232
 Transform:
   m_ObjectHideFlags: 0
@@ -335,13 +336,6 @@ MonoBehaviour:
   catchActive: 0
   resourceManager: {fileID: 0}
   creatureManager: {fileID: 0}
-  availableUpgrades: []
-  clickPower: 1
-  croinChanceBonus: 0
-  croinAmountBonus: 0
-  luckBonus: 0
-  resourceManager: {fileID: 1664156732}
-  creatureManager: {fileID: 836228451}
   upgradeManager: {fileID: 36575231}
 --- !u!4 &499747165
 Transform:
@@ -515,6 +509,4 @@ SceneRoots:
   - {fileID: 969383166}
   - {fileID: 2105825561}
   - {fileID: 499747165}
-  - {fileID: 1664156733}
-  - {fileID: 836228452}
   - {fileID: 36575232}
