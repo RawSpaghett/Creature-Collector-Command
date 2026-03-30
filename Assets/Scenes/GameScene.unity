@@ -340,6 +340,9 @@ MonoBehaviour:
   croinChanceBonus: 0
   croinAmountBonus: 0
   luckBonus: 0
+  resourceManager: {fileID: 1664156732}
+  creatureManager: {fileID: 836228451}
+  upgradeManager: {fileID: 36575231}
 --- !u!4 &499747165
 Transform:
   m_ObjectHideFlags: 0
