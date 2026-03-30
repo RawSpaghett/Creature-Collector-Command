@@ -9,17 +9,8 @@ public partial class GameManager : MonoBehaviour
     public ResourceManager resourceManager;
     public CreatureManager creatureManager;
 
-    // Color catchers for passive income, count per color
-    public Dictionary<CreatureManager.CreatureType, int> catchers = new Dictionary<CreatureManager.CreatureType, int>()
-    {
-        { CreatureManager.CreatureType.RedCreature, 0 },
-        { CreatureManager.CreatureType.BlueCreature, 0 },
-        { CreatureManager.CreatureType.GreenCreature, 0 }
-    };
-
-    private Dictionary<CreatureManager.CreatureType, float> catchTimers = new Dictionary<CreatureManager.CreatureType, float>();
+    private List<Generator> generators = new List<Generator>();
     private const float BASE_CATCH_INTERVAL = 5f;
-    //TODO: scale catcher cost with upgrades and catcher level
 
     // Avoids a switch statement every time a color needs to map to a resource type
     private static readonly Dictionary<CreatureManager.CreatureType, ResourceManager.ResourceType> colorToResource =
@@ -41,56 +32,46 @@ public partial class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Set all catcher timers to the base interval
-        foreach (CreatureManager.CreatureType color in catchers.Keys)
-            catchTimers[color] = BASE_CATCH_INTERVAL;
-
         resourceManager.LogResources();
         StartNewCatch();
-        // Temporary catchers for testing passive income and for the video 
+        // Temporary catchers for testing passive income
         HireCatcher(CreatureManager.CreatureType.RedCreature);
         HireCatcher(CreatureManager.CreatureType.BlueCreature);
     }
 
     private void Update()
     {
-        TickCatchers(Time.deltaTime);
+        TickGenerators(Time.deltaTime);
     }
 
-    /// <summary>
-    /// Loops through each color's catchers and ticks their timers independently.
-    /// </summary>
-    private void TickCatchers(float deltaTime)
+    private void TickGenerators(float deltaTime)
     {
-        List<CreatureManager.CreatureType> colors = new List<CreatureManager.CreatureType>(catchers.Keys);
-
-        for (int i = 0; i < colors.Count; i++)
-        {
-            CreatureManager.CreatureType color = colors[i];
-
-            if (catchers[color] <= 0)
-                continue;
-
-            catchTimers[color] -= deltaTime;
-            if (catchTimers[color] <= 0f)
-            {
-                // Base amount scaled by any purchased catch rate upgrades for this color
-                float creatures = ApplyUpgrade(catchers[color], colorToCatchTarget[color]);
-                resourceManager.AddResource(colorToResource[color], creatures);
-                resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, creatures);
-                catchTimers[color] = BASE_CATCH_INTERVAL;
-                Debug.Log(color + " catchers +" + creatures);
-            }
-        }
+        for (int i = 0; i < generators.Count; i++)
+            generators[i].Tick(deltaTime);
     }
 
     public void HireCatcher(CreatureManager.CreatureType color)
     {
-        if (catchers.ContainsKey(color))
-            catchers[color]++;
-      // TODO: add cost and scaling for hiring catchers
-      // TODO: hook catchers into the full catch system so they can have rarity rolls
+        Generator catcher = null;
 
-        Debug.Log("hired " + color + " catcher, total " + catchers[color]);
+        switch (color)
+        {
+            case CreatureManager.CreatureType.RedCreature:
+                catcher = new RedCatcher(resourceManager, BASE_CATCH_INTERVAL);
+                break;
+            case CreatureManager.CreatureType.BlueCreature:
+                catcher = new BlueCatcher(resourceManager, BASE_CATCH_INTERVAL);
+                break;
+            case CreatureManager.CreatureType.GreenCreature:
+                catcher = new GreenCatcher(resourceManager, BASE_CATCH_INTERVAL);
+                break;
+        }
+
+        if (catcher != null)
+        {
+            generators.Add(catcher);
+            Debug.Log("hired " + color + " catcher, total generators: " + generators.Count);
+        }
+        //TODO: add cost and scaling for hiring catchers
     }
 }

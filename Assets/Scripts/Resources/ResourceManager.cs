@@ -25,7 +25,7 @@ public class ResourceManager : MonoBehaviour
         {ResourceType.TotalCreatures,0f}, //total amount of creatures
         {ResourceType.RCreatures,0f}, //total red creatures
         {ResourceType.BCreatures,0f}, //total blue creatures
-        {ResourceType.GCreatures,0f}, //total green creaturess
+        {ResourceType.GCreatures,0f}, //total green creatures
         {ResourceType.Prestige,0f} //total prestige currency
     };
     //=================================
@@ -49,8 +49,14 @@ public class ResourceManager : MonoBehaviour
             return Resources[type];
         return 0f;
     }
-    
-    // Returns a copy of so nothing outside this class can mess with the original dictionary
+
+    // Modifies the value directly so the caller sees the change without a return
+    public void ApplyBonus(ref float amount, float multiplier)
+    {
+        amount *= multiplier;
+    }
+
+    // Returns a copy so nothing outside this class can mess with the original dictionary
     public Dictionary<ResourceType, float> GetAllResources()
     {
         return new Dictionary<ResourceType, float>(Resources);
