@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class UpgradeManager : MonoBehaviour
 {
     private List<Upgrade> Upgrades = new List<Upgrade>();
+    public ResourceManager resourceManager;
 
     private void Start()
     {
@@ -49,6 +50,22 @@ public class UpgradeManager : MonoBehaviour
         return total;
     }
 
+    public bool PurchaseAttempt(Upgrade upgrade, ResourceManager resourceManager, out string errorMessage)
+    {
+        if(upgrade.Cost > resourceManager.GetResource(ResourceManager.ResourceType.Croins))
+        {
+            errorMessage = "Not Enough Croins!";
+            return false;
+        }
+        if (upgrade.State != UpgradeState.Available)
+        {
+            errorMessage = "Upgrade Locked!";
+            return false;
+        }
+        errorMessage = string.Empty;
+        return true;
+    }
+
     public void PurchaseUpgrade(int index, ResourceManager resourceManager)
     {
         if (index < 0 || index >= Upgrades.Count)
@@ -56,22 +73,16 @@ public class UpgradeManager : MonoBehaviour
 
         Upgrade upgrade = Upgrades[index];
 
-        // Can only buy available upgrades
-        if (upgrade.State != UpgradeState.Available)
+        if(PurchaseAttempt(upgrade,resourceManager, out string errorMessage))
         {
-            Debug.Log(upgrade.Name + " is " + upgrade.State);
-            return;
+            resourceManager.SpendResource(ResourceManager.ResourceType.Croins, upgrade.Cost);
+            upgrade.SetState(UpgradeState.Purchased);
+            Debug.Log("purchased " + upgrade.Name + ", " + upgrade.Effect.Target + " multiplier now " + GetMultiplier(upgrade.Effect.Target));
         }
-
-        if (resourceManager.GetResource(ResourceManager.ResourceType.Croins) < upgrade.Cost)
+        else
         {
-            Debug.Log("can't afford " + upgrade.Name);
-            return;
+            Debug.Log($"Error: {errorMessage}");
         }
-
-        resourceManager.SpendResource(ResourceManager.ResourceType.Croins, upgrade.Cost);
-        upgrade.SetState(UpgradeState.Purchased);
-        Debug.Log("purchased " + upgrade.Name + ", " + upgrade.Effect.Target + " multiplier now " + GetMultiplier(upgrade.Effect.Target));
     }
 
     // Flips all locked upgrades at the given tier to available
