@@ -15,8 +15,13 @@
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
             <ui:VisualElement name="GameContainer" class="container" style="flex-grow: 1; background-color: rgba(121, 0, 125, 0);">
-                <ui:VisualElement name="Upgrades" class="subcontainers" style="flex-grow: 1; align-items: auto; align-self: auto; align-content: auto; background-color: rgb(202, 80, 0);">
-                    <ui:ScrollView/>
+                <ui:VisualElement name="UpgradesContainer" class="subcontainers" style="flex-grow: 1; align-items: flex-start; align-self: auto; align-content: auto; background-color: rgb(202, 80, 0); justify-content: flex-start; flex-direction: row; width: 100px;">
+                    <ui:VisualElement name="UpgradeContainer" style="flex-grow: 0; width: 100%; height: 37px; flex-basis: auto; flex-direction: row; flex-wrap: nowrap; flex-shrink: 0; align-self: auto; justify-content: flex-start; align-items: flex-start;">
+                        <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" name="" style="align-items: auto; justify-content: flex-start; width: 50px; height: 32px;"/>
+                        <ui:Label text="Label" style="white-space: pre; justify-content: flex-start; align-self: auto; align-items: auto; align-content: auto; height: 24px;"/>
+                        <ui:Label text="Label"/>
+                        <ui:Button text="Button"/>
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(210, 0, 60); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;);">
                     <ui:VisualElement name="CreatureClickEffects" class="overlay" style="flex-grow: 1; background-color: rgb(54, 54, 67);"/>

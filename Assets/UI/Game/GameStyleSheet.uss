@@ -56,3 +56,7 @@ VisualElement {
 .resourceImage {
     margin-left: 0;
 }
+
+.upgrade {
+    align-self: flex-start;
+}
