@@ -17,6 +17,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void InitializeUpgrades()
     {
+        Debug.Log("InitializeUpgrades");
         // Tier 1, available from the start
         Upgrades.Add(new Upgrade("Red Catch Rate I", 50f,
             new UpgradeEffect(1.2f, Target.CatchRateR), 1, UpgradeState.Available));
@@ -41,6 +42,7 @@ public class UpgradeManager : MonoBehaviour
     // Stacks all purchased multipliers for a given target, returns 1 if nothing applies
     public float GetMultiplier(Target target)
     {
+        Debug.Log("GetMultiplier");
         float total = 1f;
         for (int i = 0; i < Upgrades.Count; i++)
         {
@@ -52,6 +54,7 @@ public class UpgradeManager : MonoBehaviour
 
     public bool PurchaseAttempt(Upgrade upgrade, ResourceManager resourceManager, out string errorMessage)
     {
+        Debug.Log("PurchaseAttempt");
         if(upgrade.Cost > resourceManager.GetResource(ResourceManager.ResourceType.Croins))
         {
             errorMessage = "Not Enough Croins!";
@@ -68,6 +71,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void PurchaseUpgrade(int index, ResourceManager resourceManager)
     {
+        Debug.Log("PurchaseUpgrade");
         if (index < 0 || index >= Upgrades.Count)
             return;
 
@@ -88,6 +92,7 @@ public class UpgradeManager : MonoBehaviour
     // Flips all locked upgrades at the given tier to available
     public void UnlockTier(int tier)
     {
+        Debug.Log("UnlockTier");
         for (int i = 0; i < Upgrades.Count; i++)
         {
             if (Upgrades[i].Tier == tier && Upgrades[i].State == UpgradeState.Locked)
@@ -100,6 +105,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void LogUpgrades()
     {
+        Debug.Log("LogUpgrades");
         string output = "--- upgrades ---\n";
         for (int i = 0; i < Upgrades.Count; i++)
             output += i + ": " + Upgrades[i].Name + " [" + Upgrades[i].State + "] t" + Upgrades[i].Tier + " $" + Upgrades[i].Cost + "\n";

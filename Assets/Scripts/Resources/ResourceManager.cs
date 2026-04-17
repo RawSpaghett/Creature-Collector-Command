@@ -19,6 +19,7 @@ public class ResourceManager : MonoBehaviour
     {
         Croins,TotalCreatures,RCreatures,BCreatures,GCreatures,Prestige
     }
+    
     Dictionary<ResourceType, float> Resources = new Dictionary<ResourceType, float>() //dictionary of resources and their current amount
     {
         {ResourceType.Croins,0f}, //basic currency

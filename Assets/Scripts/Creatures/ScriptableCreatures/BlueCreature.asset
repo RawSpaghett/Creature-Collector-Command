@@ -18,6 +18,6 @@ MonoBehaviour:
   type: 1
   CatchDifficulty: 10
   EscapeChance: 0
-  CroinWorth: 0
-  CroinChance: 0
-  icon: {fileID: 0}
+  CroinWorth: 10
+  CroinChance: 100
+  icon: {fileID: 3559534223662383162, guid: d817a7399f34b41febaed226673832f4, type: 3}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,32 +9,42 @@ public class GameEvents : MonoBehaviour //handles UI input
     private UIDocument UIDocGame; // references our main menu doc
     private VisualElement UIButton;
     private Label resourceLabel;
-    public int ResourceNum = 0;
     public GameManager gameManager;
+    public ResourceManager resources;
+    public static event Action playerCreatureClick;
+
+    private Label croinsLabel;
+    private Label rCreatureLabel;
+    private Label bCreatureLabel;
+    private Label gCreatureLabel;
 
    
    void OnEnable()
    {
         UIDocGame = GameObject.Find("GameUI").GetComponent<UIDocument>(); //grab UIDocument
-        resourceLabel = UIDocGame.rootVisualElement.Q<Label>("Number"); //grab resource Label
-        
-        UIButton = UIDocGame.rootVisualElement.Q("CreatureClick");
-        UIButton.RegisterCallback<ClickEvent>(OnCreatureClick);
+        VisualElement root = UIDocGame.rootVisualElement;
 
-        Debug.Log("OnEnable Go");
+        //grab each resource label
+        croinsLabel = root.Q<Label>("croins");
+        rCreatureLabel = root.Q<Label>("rCreatures");
+        bCreatureLabel = root.Q<Label>("bCreatures");
+        gCreatureLabel = root.Q<Label>("gCreatures");
+        
+        UIButton = root.Q("CreatureClick"); //grab clickzone
+        UIButton.RegisterCallback<ClickEvent>(OnCreatureClick);
    }
 
-   private void OnDisable() //deregisters, good habit
-    {
-
-    }
-
-   void OnCreatureClick(ClickEvent evt) //speak to CreatureEventManager, but for now will just add numbers on click
+   void OnCreatureClick(ClickEvent evt) 
    {
-    ResourceNum++;
-    resourceLabel.text = ("Score: " + ResourceNum.ToString());
-    gameManager.OnCatchClick();
-    Debug.Log("OnClick Go");
+     playerCreatureClick?.Invoke(); //lab week 14
+   }
+
+   void Update()
+   {
+     croinsLabel.text = ($"{resources.GetResource(ResourceManager.ResourceType.Croins).ToString()}");
+     rCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.RCreatures).ToString()}");
+     bCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.BCreatures).ToString()}");
+     gCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.GCreatures).ToString()}");
    }
 
 }

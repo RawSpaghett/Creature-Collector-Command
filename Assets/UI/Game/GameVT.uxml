@@ -3,8 +3,14 @@
     <ui:VisualElement name="MainContainer" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
         <ui:VisualElement name="ResourceContainer" class="header resourcecontainer" style="flex-grow: 1; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgb(108, 31, 31); aspect-ratio: auto; max-height: 75px;">
             <ui:VisualElement name="Resource" class="resource" style="flex-grow: 1; flex-direction: row;">
-                <ui:Image name="ResourceIcon" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext" style="width: 73px; height: 52px;"/>
-                <ui:Label text="NUMBER" name="Number" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
+                <ui:Image name="croinsSprite" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext resourceImage" style="width: 73px; height: 52px;"/>
+                <ui:Label text="NUMBER" name="croins" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
+                <ui:Image name="rSprite" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext resourceImage" style="width: 73px; height: 52px;"/>
+                <ui:Label text="NUMBER" name="rCreatures" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
+                <ui:Image name="bSprite" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext resourceImage" style="width: 73px; height: 52px;"/>
+                <ui:Label text="NUMBER" name="bCreatures" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
+                <ui:Image name="gSprite" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext resourceImage" style="width: 73px; height: 52px;"/>
+                <ui:Label text="NUMBER" name="gCreatures" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
@@ -14,8 +20,8 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(210, 0, 60); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;);">
                     <ui:VisualElement name="CreatureClickEffects" class="overlay" style="flex-grow: 1; background-color: rgb(54, 54, 67);"/>
-                    <ui:ProgressBar value="22" title="Catch Progress"/>
-                    <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#Remove@2x" style="height: 440px; width: 408px; align-self: center;"/>
+                    <ui:ProgressBar value="22" title="Catch Progress" name="CatchProgress"/>
+                    <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#Remove@2x" name="CreatureImage" style="height: 440px; width: 408px; align-self: center;"/>
                     <ui:Button text="Click Zone" name="CreatureClick" style="position: absolute; top: 0; height: auto; width: auto; left: 0; bottom: 0; right: 0; cursor: initial; background-color: rgba(188, 188, 188, 0);"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="StaffContainer" class="subcontainers" style="flex-grow: 1; background-color: rgb(127, 255, 124);"/>

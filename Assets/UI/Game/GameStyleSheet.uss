@@ -48,4 +48,11 @@ VisualElement {
     text-overflow: clip;
     text-shadow: 0 0 0 rgb(0, 0, 0);
     color: rgb(255, 255, 255);
+    margin-left: 0;
+    padding-right: 1px;
+    margin-right: 0;
+}
+
+.resourceImage {
+    margin-left: 0;
 }

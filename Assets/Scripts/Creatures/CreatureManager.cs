@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 using System.Collections.Generic;
+using System.Linq;
 
 public class CreatureManager : MonoBehaviour //handles creatures
 {
@@ -7,6 +9,15 @@ public class CreatureManager : MonoBehaviour //handles creatures
     To-Do list
      - Handle Creature spawning and despawning
     */
+    //script references
+    public GameManager gameManager;
+
+    //Internal references
+     private VisualElement creatureImage;
+     private ProgressBar creatureProgressBar;
+     private UIDocument UIDoc;
+     public Creature activeCreature {get; private set;}
+
 
     public List<Creature> AllCreatures = new List<Creature>();//for the ScriptableObjects
     public enum CreatureType
@@ -34,8 +45,18 @@ public class CreatureManager : MonoBehaviour //handles creatures
         {CreatureRarity.Unheard,3f}
     };
 
+    void OnEnable()
+   {
+        Debug.Log("Creature OnEnable Go");
+        UIDoc = GameObject.Find("GameUI").GetComponent<UIDocument>(); //grab UIDocument
+
+        creatureImage = UIDoc.rootVisualElement.Q<Image>("CreatureImage"); //grab Image
+        creatureProgressBar = UIDoc.rootVisualElement.Q<ProgressBar>("CatchProgress");
+   }
+
     public Creature RandomCreature(List<Creature> AllCreatures)
     {
+        Debug.Log("RandomCreature");
         if (AllCreatures.Count == 0)
             return null;
 
@@ -78,14 +99,27 @@ public class CreatureManager : MonoBehaviour //handles creatures
 
     public void CreatureSpawn()
     {
-        //uses random creature
-        //change icon and name of UI to current creature
-        
+        CreatureDespawn();
+
+        activeCreature = RandomCreature(AllCreatures);
+
+        //Set image container as a proper frame
+       Image frame = creatureImage as Image;
+       frame.sprite = activeCreature.icon;
+
+       //set progress bar
+       creatureProgressBar.lowValue = 0f; //set low
+       creatureProgressBar.value = 0f; //set current
+       creatureProgressBar.highValue = activeCreature.CatchDifficulty; //set high
+    }
+
+    public void ProgressUpdate()
+    {
+        creatureProgressBar.title = ($"{gameManager.catchProgress}/{gameManager.progressNeeded}");
     }
 
     public void CreatureDespawn()
     {
-        //strip the creature ui to default
+        //wipe the slate clean
     }
-    
 }

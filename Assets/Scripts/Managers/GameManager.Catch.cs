@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Handles the catch progress bar. Click to fill, rarer creatures take more clicks.
@@ -23,10 +24,29 @@ public partial class GameManager
         }
     }
 
+    private static readonly Dictionary<CreatureManager.CreatureType, ResourceManager.ResourceType> colorToResource =
+        new Dictionary<CreatureManager.CreatureType, ResourceManager.ResourceType>()
+    {
+        { CreatureManager.CreatureType.RedCreature, ResourceManager.ResourceType.RCreatures },
+        { CreatureManager.CreatureType.BlueCreature, ResourceManager.ResourceType.BCreatures },
+        { CreatureManager.CreatureType.GreenCreature, ResourceManager.ResourceType.GCreatures }
+    };
+
+    // Maps color to its catch rate upgrade target
+    private static readonly Dictionary<CreatureManager.CreatureType, Target> colorToCatchTarget =
+        new Dictionary<CreatureManager.CreatureType, Target>()
+    {
+        { CreatureManager.CreatureType.RedCreature, Target.CatchRateR },
+        { CreatureManager.CreatureType.BlueCreature, Target.CatchRateB },
+        { CreatureManager.CreatureType.GreenCreature, Target.CatchRateG }
+    };
+
     // Picks a random creature and sets the catch requirements based on rarity
     public void StartNewCatch()
     {
-        currentCreature = creatureManager.RandomCreature(creatureManager.AllCreatures);
+        creatureManager.CreatureSpawn();
+        currentCreature = creatureManager.activeCreature;
+
         if (currentCreature == null)
         {
             Debug.Log("no creatures in pool");
@@ -66,13 +86,16 @@ public partial class GameManager
 
     private void CompleteCatch()
     {
+        Debug.Log("<Color=green>Complete Catch</Color");
         catchActive = false;
         Debug.Log("caught " + currentCreature.creatureName);
 
         // Add to the right color bucket using the lookup dictionary
         if (colorToResource.ContainsKey(currentCreature.type))
+        {
             resourceManager.AddResource(colorToResource[currentCreature.type], 1f);
-        resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, 1f);
+            resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, 1f);
+        }
 
         // Croin drop with gold gain multiplier applied
         float croinChance = currentCreature.CroinChance;
