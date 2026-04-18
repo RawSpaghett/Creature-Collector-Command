@@ -12,6 +12,7 @@ public class GameEvents : MonoBehaviour //handles UI input
     public GameManager gameManager;
     public ResourceManager resources;
     public UpgradeManager upgradeManager;
+
     public static event Action playerCreatureClick;
 
     private Label croinsLabel;
@@ -33,7 +34,7 @@ public class GameEvents : MonoBehaviour //handles UI input
         bCreatureLabel = root.Q<Label>("bCreatures");
         gCreatureLabel = root.Q<Label>("gCreatures");
         
-        UIButton = root.Q("CreatureClick"); //grab clickzone
+        UIButton = root.Q("ClickZone"); //grab clickzone
         UIButton.RegisterCallback<ClickEvent>(OnCreatureClick);
    }
 

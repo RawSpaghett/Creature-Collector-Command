@@ -2,6 +2,7 @@
     <Style src="project://database/Assets/UI/Game/GameStyleSheet.uss?fileID=7433441132597879392&amp;guid=425b8c245f03244e6a36161582fd4a92&amp;type=3#GameStyleSheet"/>
     <ui:VisualElement name="MainContainer" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
         <ui:VisualElement name="ResourceContainer" class="header resourcecontainer" style="flex-grow: 1; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgb(108, 31, 31); aspect-ratio: auto; max-height: 75px;">
+            <ui:Button text="" name="CreatureClick" style="position: absolute; top: 0; height: auto; width: auto; left: 0; bottom: 0; right: 0; cursor: initial; background-color: rgba(188, 188, 188, 0);"/>
             <ui:VisualElement name="Resource" class="resource" style="flex-grow: 1; flex-direction: row;">
                 <ui:Image name="croinsSprite" source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down" class="resourceimage resourcetext resourceImage" style="width: 73px; height: 52px;"/>
                 <ui:Label text="NUMBER" name="croins" class="resourcetext" style="width: 433px; -unity-text-outline-color: rgb(0, 0, 0);"/>
@@ -15,7 +16,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
             <ui:VisualElement name="GameContainer" class="container" style="flex-grow: 1; background-color: rgba(121, 0, 125, 0);">
-                <ui:VisualElement name="UpgradesContainer" class="subcontainers" style="flex-grow: 1; align-items: center; align-self: auto; align-content: auto; background-color: rgb(202, 80, 0); justify-content: flex-start; flex-direction: column; width: 100px;">
+                <ui:VisualElement name="UpgradesContainer" class="subcontainers" style="flex-grow: 1; align-items: center; align-self: auto; align-content: auto; background-color: rgb(153, 0, 255); justify-content: flex-start; flex-direction: column; width: 100px;">
                     <ui:VisualElement name="Upgrade1" class="UpgradeContainer">
                         <ui:Image source="project://database/Assets/Sprites/Pokebola-pokeball-png-0.png?fileID=2800000&amp;guid=56c0555a482464832946e3e40b701c92&amp;type=3#Pokebola-pokeball-png-0" name="Upgrade1Sprite" class="upgrade"/>
                         <ui:Label text="Catch Training" name="Upgrade1Name" class="upgrade" style="width: 104px;"/>
@@ -29,13 +30,13 @@
                         <ui:Button text="Upgrade&#10;" class="upgrade" style="background-color: rgb(255, 255, 255);"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(210, 0, 60); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;); font-size: 15px; flex-direction: column; flex-wrap: nowrap; width: 115px;">
-                    <ui:VisualElement name="CreatureClickEffects" class="overlay" style="flex-grow: 1; background-color: rgb(54, 54, 67);"/>
+                <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(0, 0, 0); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;); font-size: 15px; flex-direction: column; flex-wrap: nowrap; width: 115px;">
                     <ui:ProgressBar value="22" title="Catch Progress" name="CatchProgress"/>
+                    <ui:Label text="Label" name="CreatureLabel" style="-unity-text-align: upper-center; background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#NotInter-Regular&quot;); font-size: 29px;"/>
                     <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#Remove@2x" name="CreatureImage" style="height: 440px; width: 408px; align-self: center;"/>
-                    <ui:Button text="Click Zone" name="CreatureClick" style="position: absolute; top: 0; height: auto; width: auto; left: 0; bottom: 0; right: 0; cursor: initial; background-color: rgba(188, 188, 188, 0);"/>
+                    <ui:VisualElement name="ClickZone" class="overlay" style="flex-grow: 1; background-color: rgba(54, 54, 67, 0); top: -2px; bottom: 2px; right: 0; left: 0; color: rgba(27, 27, 105, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0);"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="StaffContainer" class="subcontainers" style="flex-grow: 1; background-color: rgb(127, 255, 124);"/>
+                <ui:VisualElement name="StaffContainer" class="subcontainers" style="flex-grow: 1; background-color: rgb(245, 225, 170);"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

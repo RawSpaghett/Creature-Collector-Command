@@ -14,6 +14,7 @@ public class CreatureManager : MonoBehaviour //handles creatures
 
     //Internal references
      private VisualElement creatureImage;
+     private Label creatureLabel;
      private ProgressBar creatureProgressBar;
      private UIDocument UIDoc;
      public Creature activeCreature {get; private set;}
@@ -52,6 +53,7 @@ public class CreatureManager : MonoBehaviour //handles creatures
 
         creatureImage = UIDoc.rootVisualElement.Q<Image>("CreatureImage"); //grab Image
         creatureProgressBar = UIDoc.rootVisualElement.Q<ProgressBar>("CatchProgress");
+        creatureLabel = UIDoc.rootVisualElement.Q<Label>("CreatureLabel");
    }
 
     public Creature RandomCreature(List<Creature> AllCreatures)
@@ -103,9 +105,12 @@ public class CreatureManager : MonoBehaviour //handles creatures
 
         activeCreature = RandomCreature(AllCreatures);
 
+        creatureLabel.text = activeCreature.creatureName;
+
         //Set image container as a proper frame
        Image frame = creatureImage as Image;
        frame.sprite = activeCreature.icon;
+
 
        //set progress bar
        creatureProgressBar.lowValue = 0f; //set low
