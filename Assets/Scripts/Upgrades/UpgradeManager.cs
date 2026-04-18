@@ -1,12 +1,29 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Holds all upgrades and handles purchasing and multiplier lookups.
+/// 
+/// Apr 17, changed everything to support dictionary instead of list
 /// </summary>
+
+public class UpgradeEvent:EventBase<UpgradeEvent> //allows for bubbling, accessing deep-nested data from the surface
+{
+    public Upgrade upgrade {get; protected set;} //prevents accidents in larger projects
+    public static UpgradeEvent GetPooled(Upgrade upgradeEvt) //reuses and recycles the event to prevent memory leaks
+    {
+        var evt = EventBase<UpgradeEvent>.GetPooled();
+        evt.upgrade = upgradeEvt;
+        return evt;
+    }
+}
+
 public class UpgradeManager : MonoBehaviour
 {
-    private List<Upgrade> Upgrades = new List<Upgrade>();
+    private Dictionary<string,Upgrade> Upgrades = new Dictionary<string,Upgrade>();
     public ResourceManager resourceManager;
 
     private void Start()
@@ -17,6 +34,14 @@ public class UpgradeManager : MonoBehaviour
 
     private void InitializeUpgrades()
     {
+        Debug.Log("InitializeUpgrades");
+
+        void AddUpgrade(Upgrade u) => Upgrades.Add(u.Name,u);
+
+        AddUpgrade(new Upgrade("Red Catch Rate I", 50f,new UpgradeEffect(1.2f, Target.CatchRateR), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Red Catch Rate II", 22f,new UpgradeEffect(2f, Target.CatchRateR), 1, UpgradeState.Locked));
+
+        /*
         Debug.Log("InitializeUpgrades");
         // Tier 1, available from the start
         Upgrades.Add(new Upgrade("Red Catch Rate I", 50f,
@@ -37,6 +62,7 @@ public class UpgradeManager : MonoBehaviour
             new UpgradeEffect(1.5f, Target.CatchRateB), 2, UpgradeState.Locked));
         Upgrades.Add(new Upgrade("Gold Boost II", 300f,
             new UpgradeEffect(1.6f, Target.GoldGain), 2, UpgradeState.Locked));
+            */
     }
 
     // Stacks all purchased multipliers for a given target, returns 1 if nothing applies
@@ -44,10 +70,13 @@ public class UpgradeManager : MonoBehaviour
     {
         Debug.Log("GetMultiplier");
         float total = 1f;
-        for (int i = 0; i < Upgrades.Count; i++)
+        
+        foreach (var upgrade in Upgrades.Values)
         {
-            if (Upgrades[i].State == UpgradeState.Purchased && Upgrades[i].Effect.Target == target)
-                total *= Upgrades[i].Effect.Multiplier;
+            if (upgrade.State == UpgradeState.Purchased && target == upgrade.Effect.Target)
+            {
+                total += upgrade.Effect.Multiplier;
+            }
         }
         return total;
     }
@@ -69,13 +98,9 @@ public class UpgradeManager : MonoBehaviour
         return true;
     }
 
-    public void PurchaseUpgrade(int index, ResourceManager resourceManager)
+    public void PurchaseUpgrade(Upgrade upgrade, ResourceManager resourceManager)
     {
         Debug.Log("PurchaseUpgrade");
-        if (index < 0 || index >= Upgrades.Count)
-            return;
-
-        Upgrade upgrade = Upgrades[index];
 
         if(PurchaseAttempt(upgrade,resourceManager, out string errorMessage))
         {
@@ -93,12 +118,12 @@ public class UpgradeManager : MonoBehaviour
     public void UnlockTier(int tier)
     {
         Debug.Log("UnlockTier");
-        for (int i = 0; i < Upgrades.Count; i++)
+         foreach (var upgrade in Upgrades.Values)
         {
-            if (Upgrades[i].Tier == tier && Upgrades[i].State == UpgradeState.Locked)
+            if (upgrade.Tier == tier && upgrade.State == UpgradeState.Locked)
             {
-                Upgrades[i].SetState(UpgradeState.Available);
-                Debug.Log("unlocked " + Upgrades[i].Name);
+                upgrade.SetState(UpgradeState.Available);
+                Debug.Log("unlocked " + upgrade.Name);
             }
         }
     }
@@ -107,8 +132,7 @@ public class UpgradeManager : MonoBehaviour
     {
         Debug.Log("LogUpgrades");
         string output = "--- upgrades ---\n";
-        for (int i = 0; i < Upgrades.Count; i++)
-            output += i + ": " + Upgrades[i].Name + " [" + Upgrades[i].State + "] t" + Upgrades[i].Tier + " $" + Upgrades[i].Cost + "\n";
+        //print upgrades
         Debug.Log(output);
     }
 }

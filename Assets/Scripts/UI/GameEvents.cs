@@ -11,6 +11,7 @@ public class GameEvents : MonoBehaviour //handles UI input
     private Label resourceLabel;
     public GameManager gameManager;
     public ResourceManager resources;
+    public UpgradeManager upgradeManager;
     public static event Action playerCreatureClick;
 
     private Label croinsLabel;
@@ -23,6 +24,8 @@ public class GameEvents : MonoBehaviour //handles UI input
    {
         UIDocGame = GameObject.Find("GameUI").GetComponent<UIDocument>(); //grab UIDocument
         VisualElement root = UIDocGame.rootVisualElement;
+
+        root.RegisterCallback<UpgradeEvent>(OnUpgradeClick); //to listen to upgrade bubbles
 
         //grab each resource label
         croinsLabel = root.Q<Label>("croins");
@@ -39,12 +42,22 @@ public class GameEvents : MonoBehaviour //handles UI input
      playerCreatureClick?.Invoke(); //lab week 14
    }
 
+   void OnUpgradeClick (UpgradeEvent evt)
+   {
+      upgradeManager.PurchaseUpgrade(evt.upgrade, resources);
+   }
+
    void Update()
    {
-     croinsLabel.text = ($"{resources.GetResource(ResourceManager.ResourceType.Croins).ToString()}");
-     rCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.RCreatures).ToString()}");
-     bCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.BCreatures).ToString()}");
-     gCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.GCreatures).ToString()}");
+
+      //resources
+      croinsLabel.text = ($"{resources.GetResource(ResourceManager.ResourceType.Croins).ToString()}");
+      rCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.RCreatures).ToString()}");
+      bCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.BCreatures).ToString()}");
+      gCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.GCreatures).ToString()}");
+
+      //Upgrades
+
    }
 
 }
