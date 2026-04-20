@@ -1,11 +1,11 @@
 What could be improved
-- A chunk of my code uses pointless references (Upgrade.UpgradeEffect.Target), could be condensed
+- A chunk of my code uses pointless references (Upgrade.UpgradeEffect.Target), could be condensed(?)
 - UI toolkit.....
 
 What needs to be done (For the rubric)
 - Upgrades
-- Resources
-- Income
+- Resources DONE
+- Income DONE
 - Itch.IO
 
 What should be done 
@@ -14,5 +14,6 @@ What should be done
 - Popup windows
 - Art
 - Font
-- Click FX
+- Click FX, Progress number? 
 - Audio
+- Moving background (Balatro - style)

@@ -29,10 +29,10 @@ public partial class GameManager : MonoBehaviour
         StartNewCatch();
 
 
-        /* Temporary catchers for testing passive income
+        //Temporary catchers for testing passive income
         HireCatcher(CreatureManager.CreatureType.RedCreature);
         HireCatcher(CreatureManager.CreatureType.BlueCreature);
-        */
+        
     }
 
     private void Update()

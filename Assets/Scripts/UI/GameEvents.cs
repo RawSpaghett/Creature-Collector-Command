@@ -50,6 +50,7 @@ public class GameEvents : MonoBehaviour //handles UI input
 
    void Update()
    {
+      
 
       //resources
       croinsLabel.text = ($"{resources.GetResource(ResourceManager.ResourceType.Croins).ToString()}");

@@ -5,6 +5,7 @@ public partial class GameManager: MonoBehaviour
 {
     public void HireCatcher(CreatureManager.CreatureType color)
     {
+        Debug.Log("<Color=Green> HireCatcher </Color>");
         Generator catcher = null;
 
         switch (color)

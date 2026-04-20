@@ -20,4 +20,4 @@ MonoBehaviour:
   EscapeChance: 0
   CroinWorth: 10
   CroinChance: 100
-  icon: {fileID: 3559534223662383162, guid: d817a7399f34b41febaed226673832f4, type: 3}
+  icon: {fileID: -1790397532127832001, guid: b648e99d1f6ab431490b60c33480967a, type: 3}

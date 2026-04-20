@@ -121,6 +121,7 @@ public class CreatureManager : MonoBehaviour //handles creatures
     public void ProgressUpdate()
     {
         creatureProgressBar.title = ($"{gameManager.catchProgress}/{gameManager.progressNeeded}");
+        creatureProgressBar.value = gameManager.catchProgress;
     }
 
     public void CreatureDespawn()
