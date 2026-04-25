@@ -5,14 +5,15 @@ using UnityEngine;
 /// </summary>
 public class GreenCatcher : Generator
 {
-    public GreenCatcher(ResourceManager resourceManager, float interval) : base(resourceManager, interval)
+    public GreenCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval) : base(resourceManager, upgradeManager, interval)
     {
     }
 
     public override void Produce()
     {
         float amount = 1f;
-        resourceManager.ApplyBonus(ref amount, 1f);
+        float multiplier = upgradeManager.GetMultiplier(Target.CatchRateG);
+        resourceManager.ApplyBonus(ref amount, multiplier);
         resourceManager.AddResource(ResourceManager.ResourceType.GCreatures, amount);
         resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, amount);
         Debug.Log("Green catcher +" + amount);

@@ -7,10 +7,12 @@ public abstract class Generator
     public float Timer;
 
     protected ResourceManager resourceManager;
+    protected UpgradeManager upgradeManager;
 
-    public Generator(ResourceManager resourceManager, float interval)
+    public Generator(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval)
     {
         this.resourceManager = resourceManager;
+        this.upgradeManager = upgradeManager;
         Interval = interval;
         Timer = interval;
     }

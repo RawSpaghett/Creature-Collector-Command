@@ -38,31 +38,24 @@ public class UpgradeManager : MonoBehaviour
 
         void AddUpgrade(Upgrade u) => Upgrades.Add(u.Name,u);
 
-        AddUpgrade(new Upgrade("Red Catch Rate I", 50f,new UpgradeEffect(1.2f, Target.CatchRateR), 1, UpgradeState.Available));
-        AddUpgrade(new Upgrade("Red Catch Rate II", 22f,new UpgradeEffect(2f, Target.CatchRateR), 1, UpgradeState.Locked));
+        // Tier 1
+        AddUpgrade(new Upgrade("Red Catch Rate I", 50f, new UpgradeEffect(1.2f, Target.CatchRateR), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Green Catch Rate I", 50f, new UpgradeEffect(1.2f, Target.CatchRateG), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Blue Catch Rate I", 50f, new UpgradeEffect(1.2f, Target.CatchRateB), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Gold Boost I", 75f, new UpgradeEffect(1.3f, Target.GoldGain), 1, UpgradeState.Available));
 
-        /*
-        Debug.Log("InitializeUpgrades");
-        // Tier 1, available from the start
-        Upgrades.Add(new Upgrade("Red Catch Rate I", 50f,
-            new UpgradeEffect(1.2f, Target.CatchRateR), 1, UpgradeState.Available));
-        Upgrades.Add(new Upgrade("Green Catch Rate I", 50f,
-            new UpgradeEffect(1.2f, Target.CatchRateG), 1, UpgradeState.Available));
-        Upgrades.Add(new Upgrade("Blue Catch Rate I", 50f,
-            new UpgradeEffect(1.2f, Target.CatchRateB), 1, UpgradeState.Available));
-        Upgrades.Add(new Upgrade("Gold Boost I", 75f,
-            new UpgradeEffect(1.3f, Target.GoldGain), 1, UpgradeState.Available));
+        // Tier 2
+        AddUpgrade(new Upgrade("Red Catch Rate II", 200f, new UpgradeEffect(1.5f, Target.CatchRateR), 2, UpgradeState.Locked));
+        AddUpgrade(new Upgrade("Green Catch Rate II", 200f, new UpgradeEffect(1.5f, Target.CatchRateG), 2, UpgradeState.Locked));
+        AddUpgrade(new Upgrade("Blue Catch Rate II", 200f, new UpgradeEffect(1.5f, Target.CatchRateB), 2, UpgradeState.Locked));
+        AddUpgrade(new Upgrade("Gold Boost II", 300f, new UpgradeEffect(1.6f, Target.GoldGain), 2, UpgradeState.Locked));
+    }
 
-        // Tier 2, locked until player progresses
-        Upgrades.Add(new Upgrade("Red Catch Rate II", 200f,
-            new UpgradeEffect(1.5f, Target.CatchRateR), 2, UpgradeState.Locked));
-        Upgrades.Add(new Upgrade("Green Catch Rate II", 200f,
-            new UpgradeEffect(1.5f, Target.CatchRateG), 2, UpgradeState.Locked));
-        Upgrades.Add(new Upgrade("Blue Catch Rate II", 200f,
-            new UpgradeEffect(1.5f, Target.CatchRateB), 2, UpgradeState.Locked));
-        Upgrades.Add(new Upgrade("Gold Boost II", 300f,
-            new UpgradeEffect(1.6f, Target.GoldGain), 2, UpgradeState.Locked));
-            */
+    public Upgrade GetUpgrade(string name)
+    {
+        if (Upgrades.ContainsKey(name))
+            return Upgrades[name];
+        return null;
     }
 
     // Stacks all purchased multipliers for a given target, returns 1 if nothing applies

@@ -11,13 +11,13 @@ public partial class GameManager: MonoBehaviour
         switch (color)
         {
             case CreatureManager.CreatureType.RedCreature:
-                catcher = new RedCatcher(resourceManager, BASE_CATCH_INTERVAL);
+                catcher = new RedCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL);
                 break;
             case CreatureManager.CreatureType.BlueCreature:
-                catcher = new BlueCatcher(resourceManager, BASE_CATCH_INTERVAL);
+                catcher = new BlueCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL);
                 break;
             case CreatureManager.CreatureType.GreenCreature:
-                catcher = new GreenCatcher(resourceManager, BASE_CATCH_INTERVAL);
+                catcher = new GreenCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL);
                 break;
         }
 

@@ -5,14 +5,15 @@ using UnityEngine;
 /// </summary>
 public class BlueCatcher : Generator
 {
-    public BlueCatcher(ResourceManager resourceManager, float interval) : base(resourceManager, interval)
+    public BlueCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval) : base(resourceManager, upgradeManager, interval)
     {
     }
 
     public override void Produce()
     {
         float amount = 1f;
-        resourceManager.ApplyBonus(ref amount, 1f);
+        float multiplier = upgradeManager.GetMultiplier(Target.CatchRateB);
+        resourceManager.ApplyBonus(ref amount, multiplier);
         resourceManager.AddResource(ResourceManager.ResourceType.BCreatures, amount);
         resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, amount);
         Debug.Log("Blue catcher +" + amount);
