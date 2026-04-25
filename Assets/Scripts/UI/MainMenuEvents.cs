@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,23 +18,27 @@ public partial class MainMenuEvents : MonoBehaviour
         UIDocMain = GameObject.Find("MainMenu").GetComponent<UIDocument>(); //grab UIDocument
         UIDocLanding = GameObject.Find("MainMenuLanding").GetComponent<UIDocument>(); //grab landing UIdoc
 
+
         UIDocLanding.rootVisualElement.RegisterCallback<ClickEvent>(OnLandingClick); //handles UIlanding click
 
         //searches for specific button
-        UIButton = UIDocMain.rootVisualElement.Q("") as Button;//searches the UI docs main root (highest in the hierarchy) for a visual element in q (query)and cast it as a button
+        UIButton = UIDocMain.rootVisualElement.Q("Start") as Button;//searches the UI docs main root (highest in the hierarchy) for a visual element in q (query)and cast it as a button
         UIButton.RegisterCallback<ClickEvent>(OnStartClick);
 
-         //grabs every button and turns it to list
+         //grabs every button and turns it to list, for general clicks
         MainButtons = UIDocMain.rootVisualElement.Query<Button>().ToList();
         for (int i = 0; i < MainButtons.Count; i++)
         {
             MainButtons[i].RegisterCallback<ClickEvent>(OnClickAll);
         }
+
+        UIDocMain.rootVisualElement.style.display = DisplayStyle.None;
     }
 
     private void OnStartClick(ClickEvent evt)
     {
-
+        Debug.Log("<Color=Green> OnStartClick </Color>");
+        SceneManager.LoadScene("GameScene");
     }
     
     private void OnDisable() //deregisters, good habit
@@ -48,8 +53,8 @@ public partial class MainMenuEvents : MonoBehaviour
 
     private void OnLandingClick(ClickEvent evt)
     {
-        UIDocLanding.enabled = false;
-        UIDocMain.enabled = true;
+        UIDocLanding.rootVisualElement.style.display = DisplayStyle.None;
+        UIDocMain.rootVisualElement.style.display = DisplayStyle.Flex;
         //play title specific sounds
     }
 }

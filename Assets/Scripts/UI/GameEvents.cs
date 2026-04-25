@@ -8,8 +8,11 @@ public class GameEvents : MonoBehaviour //handles UI input
 {
     private UIDocument UIDocGame; // references our main menu doc
     private VisualElement UIButton;
+    private VisualElement UpgradeButton;
+    private VisualElement StaffButton;
     private Label resourceLabel;
     public GameManager gameManager;
+    public CreatureManager creatureManager;
     public ResourceManager resources;
     public UpgradeManager upgradeManager;
 
@@ -36,6 +39,12 @@ public class GameEvents : MonoBehaviour //handles UI input
         
         UIButton = root.Q("ClickZone"); //grab clickzone
         UIButton.RegisterCallback<ClickEvent>(OnCreatureClick);
+
+        UpgradeButton = root.Q("Upgrade1Button"); //grab clickzone
+        UpgradeButton.RegisterCallback<UpgradeEvent>(OnUpgradeClick);
+
+        StaffButton = root.Q("Staff1Button"); //grab clickzone
+        StaffButton.RegisterCallback<ClickEvent>(OnStaffClick);
    }
 
    void OnCreatureClick(ClickEvent evt) 
@@ -46,6 +55,14 @@ public class GameEvents : MonoBehaviour //handles UI input
    void OnUpgradeClick (UpgradeEvent evt)
    {
       upgradeManager.PurchaseUpgrade(evt.upgrade, resources);
+   }
+
+   void OnStaffClick (ClickEvent evt)
+   {
+      Debug.Log("<Color = Green> OnStaff! </Color");
+      Creature randomC = creatureManager.RandomCreature(creatureManager.AllCreatures);
+      CreatureManager.CreatureType random = randomC.type;//by no means efficient, but hey it was quick
+      gameManager.HireCatcher(random);
    }
 
    void Update()

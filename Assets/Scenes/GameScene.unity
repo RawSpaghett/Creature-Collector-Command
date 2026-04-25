@@ -580,7 +580,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEvents
   gameManager: {fileID: 499747164}
+  creatureManager: {fileID: 499747167}
   resources: {fileID: 499747168}
+  upgradeManager: {fileID: 499747166}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

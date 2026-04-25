@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 9e43c3c6505fb42bc9dbaed977228f2f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2291938853206740621
+    second: Cool Text - Creature Collector        Command 506712211694372_0
+  - first:
+      213: -1390692657537394781
+    second: Cool Text - Creature Collector        Command 506712211694372_1
+  - first:
+      213: -2630621419136615602
+    second: Cool Text - Creature Collector        Command 506712211694372_2
+  - first:
+      213: -1067172078000820157
+    second: Cool Text - Creature Collector        Command 506712211694372_3
+  - first:
+      213: -3164092573248689452
+    second: Cool Text - Creature Collector        Command 506712211694372_4
+  - first:
+      213: -5485744921170767788
+    second: Cool Text - Creature Collector        Command 506712211694372_5
+  - first:
+      213: -588712690762267722
+    second: Cool Text - Creature Collector        Command 506712211694372_6
+  - first:
+      213: 8047842411371815801
+    second: Cool Text - Creature Collector        Command 506712211694372_7
+  - first:
+      213: -7649600478222020261
+    second: Cool Text - Creature Collector        Command 506712211694372_8
+  - first:
+      213: -8919621932759975406
+    second: Cool Text - Creature Collector        Command 506712211694372_9
+  - first:
+      213: -2282991669497580163
+    second: Cool Text - Creature Collector        Command 506712211694372_10
+  - first:
+      213: 5376776202274761082
+    second: Cool Text - Creature Collector        Command 506712211694372_11
+  - first:
+      213: -6067793615388032004
+    second: Cool Text - Creature Collector        Command 506712211694372_12
+  - first:
+      213: -6635621283665334178
+    second: Cool Text - Creature Collector        Command 506712211694372_13
+  - first:
+      213: -3154124643899354735
+    second: Cool Text - Creature Collector        Command 506712211694372_14
+  - first:
+      213: -5412321524091165540
+    second: Cool Text - Creature Collector        Command 506712211694372_15
+  - first:
+      213: -1646518906134383895
+    second: Cool Text - Creature Collector        Command 506712211694372_16
+  - first:
+      213: -5633892395096600986
+    second: Cool Text - Creature Collector        Command 506712211694372_17
+  - first:
+      213: 4281925790034308465
+    second: Cool Text - Creature Collector        Command 506712211694372_18
+  - first:
+      213: 4491262027097708149
+    second: Cool Text - Creature Collector        Command 506712211694372_19
+  - first:
+      213: -7957581006288135595
+    second: Cool Text - Creature Collector        Command 506712211694372_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ecd486e3a9ecf10800000000000000
+      internalID: 2291938853206740621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 150
+        width: 242
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a75dbb656443bce0800000000000000
+      internalID: -1390692657537394781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_2
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bf3d5c1c72e7bd0800000000000000
+      internalID: -2630621419136615602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_3
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 150
+        width: 121
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340bb8036a4a031f0800000000000000
+      internalID: -1067172078000820157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da6f079192e614d0800000000000000
+      internalID: -3164092573248689452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_5
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 150
+        width: 241
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45096351f08bed3b0800000000000000
+      internalID: -5485744921170767788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_6
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3c9584de874d7f0800000000000000
+      internalID: -588712690762267722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_7
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973e32aa80eafaf60800000000000000
+      internalID: 8047842411371815801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_8
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 150
+        width: 175
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b511be5f4e827d590800000000000000
+      internalID: -7649600478222020261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_9
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 150
+        width: 121
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21afe0f3c13273480800000000000000
+      internalID: -8919621932759975406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_10
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75bb622c2f2150e0800000000000000
+      internalID: -2282991669497580163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_11
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 150
+        width: 121
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a796c55f7752e9a40800000000000000
+      internalID: 5376776202274761082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_12
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 150
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3c968fadddacba0800000000000000
+      internalID: -6067793615388032004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_13
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 150
+        width: 128
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e503b1b799989e3a0800000000000000
+      internalID: -6635621283665334178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_14
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 6
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191d21ff85c4a34d0800000000000000
+      internalID: -3154124643899354735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_15
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 6
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c946852ef3293e4b0800000000000000
+      internalID: -5412321524091165540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_16
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 6
+        width: 171
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e235eb47c36629e0800000000000000
+      internalID: -1646518906134383895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_17
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 6
+        width: 171
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e0e7f57b460d1b0800000000000000
+      internalID: -5633892395096600986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_18
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 6
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d2495c1d47c6b30800000000000000
+      internalID: 4281925790034308465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_19
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 6
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5761c56940b245e30800000000000000
+      internalID: 4491262027097708149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cool Text - Creature Collector        Command 506712211694372_20
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 6
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55adcc06c3ef09190800000000000000
+      internalID: -7957581006288135595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cool Text - Creature Collector        Command 506712211694372_0: 2291938853206740621
+      Cool Text - Creature Collector        Command 506712211694372_1: -1390692657537394781
+      Cool Text - Creature Collector        Command 506712211694372_10: -2282991669497580163
+      Cool Text - Creature Collector        Command 506712211694372_11: 5376776202274761082
+      Cool Text - Creature Collector        Command 506712211694372_12: -6067793615388032004
+      Cool Text - Creature Collector        Command 506712211694372_13: -6635621283665334178
+      Cool Text - Creature Collector        Command 506712211694372_14: -3154124643899354735
+      Cool Text - Creature Collector        Command 506712211694372_15: -5412321524091165540
+      Cool Text - Creature Collector        Command 506712211694372_16: -1646518906134383895
+      Cool Text - Creature Collector        Command 506712211694372_17: -5633892395096600986
+      Cool Text - Creature Collector        Command 506712211694372_18: 4281925790034308465
+      Cool Text - Creature Collector        Command 506712211694372_19: 4491262027097708149
+      Cool Text - Creature Collector        Command 506712211694372_2: -2630621419136615602
+      Cool Text - Creature Collector        Command 506712211694372_20: -7957581006288135595
+      Cool Text - Creature Collector        Command 506712211694372_3: -1067172078000820157
+      Cool Text - Creature Collector        Command 506712211694372_4: -3164092573248689452
+      Cool Text - Creature Collector        Command 506712211694372_5: -5485744921170767788
+      Cool Text - Creature Collector        Command 506712211694372_6: -588712690762267722
+      Cool Text - Creature Collector        Command 506712211694372_7: 8047842411371815801
+      Cool Text - Creature Collector        Command 506712211694372_8: -7649600478222020261
+      Cool Text - Creature Collector        Command 506712211694372_9: -8919621932759975406
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
