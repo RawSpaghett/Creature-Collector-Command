@@ -53,7 +53,7 @@ public class UpgradeUI : MonoBehaviour
             return;
 
         Debug.Log("upgrade button clicked");
-        upgradeManager.PurchaseUpgrade(upgrade1, resourceManager);
+        upgradeManager.PurchaseUpgrade(upgrade1);
         UpdateStatus();
 
         evt.StopPropagation();

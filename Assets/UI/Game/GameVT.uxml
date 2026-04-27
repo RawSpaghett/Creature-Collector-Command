@@ -16,29 +16,29 @@
         <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
             <ui:VisualElement name="GameContainer" class="container" style="flex-grow: 1; background-color: rgba(121, 0, 125, 0);">
                 <ui:VisualElement name="UpgradesContainer" class="subcontainers" style="flex-grow: 1; align-items: center; align-self: auto; align-content: auto; background-color: rgb(0, 0, 0); justify-content: flex-start; flex-direction: column; width: 38px;">
-                    <ui:VisualElement name="Upgrade1" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="rCatchRate" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/red-paw-print-md.png?fileID=2800000&amp;guid=7d70e2134d33545f88f487512e65bc4a&amp;type=3#red-paw-print-md" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
                         <ui:Label text="Red Catch Rate&#10;" name="Upgrade1Name" class="upgrade text" style="width: 104px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Upgrade1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="0/0" name="rCatchLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="rCatchButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Upgrade2" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="bCatchRate" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/blue-paw-print-md.png?fileID=2800000&amp;guid=587c04105ac77473cb81b8d652449084&amp;type=3#blue-paw-print-md" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
                         <ui:Label text="Blue Catch Rate&#10;" name="Upgrade1Name" class="upgrade text" style="width: 104px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Upgrade1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="0/0" name="bCatchLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="bCatchButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Upgrade3" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="gCatchRate" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/green-paw-print-hi.png?fileID=2800000&amp;guid=92a2a349476d44b318ee309213f62156&amp;type=3#green-paw-print-hi" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
                         <ui:Label text="Green Catch Rate&#10;" name="Upgrade1Name" class="upgrade text" style="width: 104px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Upgrade1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="0/0" name="gCatchLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="gCatchButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Upgrade4" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="croinBoost" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/coin_PNG36871.png?fileID=2800000&amp;guid=dfe2853b60b52414fbe891e7088f46f8&amp;type=3#coin_PNG36871" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
                         <ui:Label text="Croin Boost" name="Upgrade1Name" class="upgrade text" style="width: 104px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Upgrade1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="0/0" name="croinBoostLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="croinBoostButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(0, 0, 0); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;); font-size: 15px; flex-direction: column; flex-wrap: nowrap; width: 115px;">
@@ -48,23 +48,23 @@
                     <ui:VisualElement name="ClickZone" class="overlay" style="flex-grow: 1; background-color: rgba(54, 54, 67, 0); top: -2px; bottom: 2px; right: 0; left: 0; color: rgba(27, 27, 105, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0);"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="StaffContainer" class="subcontainers" style="flex-grow: 1; background-color: rgb(0, 0, 0); width: 46px;">
-                    <ui:VisualElement name="Staff1" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="bCatcher" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/Pokebola-pokeball-png-0.png?fileID=2800000&amp;guid=56c0555a482464832946e3e40b701c92&amp;type=3#Pokebola-pokeball-png-0" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
-                        <ui:Label text="Catch Staff&#10;" name="Upgrade1Name" class="upgrade text" style="width: 142px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Staff1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="Red Catcher" name="Upgrade1Name" class="upgrade text" style="width: 142px;"/>
+                        <ui:Label text="0" name="rCatcherLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="rCatcherButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Staff1" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="bCatcher" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/dive_ball_by_ace_zeroartic_df45vwy-fullview.png?fileID=2800000&amp;guid=fffabaa9e5ae945b0bd2c55e0ac7c044&amp;type=3#dive_ball_by_ace_zeroartic_df45vwy-fullview" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
-                        <ui:Label text="Catch Staff&#10;" name="Upgrade1Name" class="upgrade text" style="width: 142px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Staff1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="Blue Catcher" name="Upgrade1Name" class="upgrade text" style="width: 142px;"/>
+                        <ui:Label text="0" name="bCatcherLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="bCatcherButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Staff1" class="UpgradeContainer" style="width: auto;">
+                    <ui:VisualElement name="gCatcher" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/duskball.png?fileID=2800000&amp;guid=14a2b3d465d444fe1a59d6d52d973037&amp;type=3#duskball" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
-                        <ui:Label text="Catch Staff&#10;" name="Upgrade1Name" class="upgrade text" style="width: 142px;"/>
-                        <ui:Label text="0/0" name="Upgrade1Status" class="upgrade text" style="width: 41px;"/>
-                        <ui:Button text="Upgrade&#10;" name="Staff1Button" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
+                        <ui:Label text="Green Catcher" name="Upgrade1Name" class="upgrade text" style="width: 142px;"/>
+                        <ui:Label text="0" name="gCatcherLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Button text="Upgrade&#10;" name="gCatcherButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

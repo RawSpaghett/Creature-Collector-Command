@@ -32,7 +32,7 @@ public class UpgradeManager : MonoBehaviour
         LogUpgrades();
     }
 
-    private void InitializeUpgrades()
+    private void InitializeUpgrades() //hardcoded, alternative would use scriptable objects
     {
         Debug.Log("InitializeUpgrades");
 
@@ -74,7 +74,7 @@ public class UpgradeManager : MonoBehaviour
         return total;
     }
 
-    public bool PurchaseAttempt(Upgrade upgrade, ResourceManager resourceManager, out string errorMessage)
+    public bool PurchaseAttempt(Upgrade upgrade,out string errorMessage)
     {
         Debug.Log("PurchaseAttempt");
         if(upgrade.Cost > resourceManager.GetResource(ResourceManager.ResourceType.Croins))
@@ -91,11 +91,11 @@ public class UpgradeManager : MonoBehaviour
         return true;
     }
 
-    public void PurchaseUpgrade(Upgrade upgrade, ResourceManager resourceManager)
+    public void PurchaseUpgrade(Upgrade upgrade)
     {
         Debug.Log("PurchaseUpgrade");
 
-        if(PurchaseAttempt(upgrade,resourceManager, out string errorMessage))
+        if(PurchaseAttempt(upgrade, out string errorMessage))
         {
             resourceManager.SpendResource(ResourceManager.ResourceType.Croins, upgrade.Cost);
             upgrade.SetState(UpgradeState.Purchased);
@@ -127,5 +127,10 @@ public class UpgradeManager : MonoBehaviour
         string output = "--- upgrades ---\n";
         //print upgrades
         Debug.Log(output);
+    }
+
+    public void UpdateUpgradeUI()
+    {
+
     }
 }

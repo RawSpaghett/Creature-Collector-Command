@@ -46,6 +46,15 @@ public class CreatureManager : MonoBehaviour //handles creatures
         {CreatureRarity.Unheard,3f}
     };
 
+    public Dictionary<CreatureRarity,string> RarityColors = new Dictionary<CreatureRarity,string>() //rarity hex codes
+    {
+        {CreatureRarity.Common,"#FFFFFF"},
+        {CreatureRarity.Rare,"#4287f5"},
+        {CreatureRarity.SuperRare,"#ff0000"},
+        {CreatureRarity.Legendary,"#ff8000"},
+        {CreatureRarity.Unheard,"#a335ee"}
+    };
+
     void OnEnable()
    {
         Debug.Log("Creature OnEnable Go");
@@ -105,7 +114,13 @@ public class CreatureManager : MonoBehaviour //handles creatures
 
         activeCreature = RandomCreature(AllCreatures);
 
-        creatureLabel.text = activeCreature.creatureName;
+        string hex = RarityColors[activeCreature.rarity]; //searches and stores hex code
+
+        if (ColorUtility.TryParseHtmlString(hex, out Color labelColor)) //converts hex to actual color
+        {
+            creatureLabel.text = activeCreature.creatureName;
+            creatureLabel.style.color = labelColor;
+        }
 
         //Set image container as a proper frame
        Image frame = creatureImage as Image;
