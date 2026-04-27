@@ -89,3 +89,8 @@ VisualElement {
     margin-right: 0;
     margin-bottom: 20px;
 }
+
+.text {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+}

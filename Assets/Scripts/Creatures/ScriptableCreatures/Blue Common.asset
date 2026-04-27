@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e387a9f41f1543f5a856a10536dc58f, type: 3}
-  m_Name: GreenCreature
+  m_Name: Blue Common
   m_EditorClassIdentifier: Assembly-CSharp::Creature
-  creatureName: Example Green
+  creatureName: Example Blue
   description: 
   rarity: 0
-  type: 2
+  type: 1
   CatchDifficulty: 10
   EscapeChance: 0
   CroinWorth: 10
   CroinChance: 100
-  icon: {fileID: 4023126557622457447, guid: 92a2a349476d44b318ee309213f62156, type: 3}
+  icon: {fileID: -990910188382414355, guid: 587c04105ac77473cb81b8d652449084, type: 3}

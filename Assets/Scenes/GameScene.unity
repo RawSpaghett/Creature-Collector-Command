@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 499747166}
   - component: {fileID: 499747168}
   - component: {fileID: 499747169}
+  - component: {fileID: 499747170}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentCreature: {fileID: 0}
+  multiplierManager: {fileID: 499747170}
   catchProgress: 0
   progressNeeded: 0
   catchActive: 0
@@ -339,8 +341,17 @@ MonoBehaviour:
   gameManager: {fileID: 499747164}
   AllCreatures:
   - {fileID: 11400000, guid: f09854a88c6a54e29b093e7fe064e98a, type: 2}
-  - {fileID: 11400000, guid: 1a213810acb2b4cccb1f2a53b38d58f6, type: 2}
+  - {fileID: 11400000, guid: 9965aa34bb3a549f787afde24292b0e6, type: 2}
   - {fileID: 11400000, guid: e34428e5621104e2db9db23e90033447, type: 2}
+  - {fileID: 11400000, guid: 9965aa34bb3a549f787afde24292b0e6, type: 2}
+  - {fileID: 11400000, guid: 1a213810acb2b4cccb1f2a53b38d58f6, type: 2}
+  - {fileID: 11400000, guid: 65971212196f6451aafaa8519c22c6b8, type: 2}
+  - {fileID: 11400000, guid: e34428e5621104e2db9db23e90033447, type: 2}
+  - {fileID: 11400000, guid: 775d126948dae441292b93da689fe3e6, type: 2}
+  - {fileID: 11400000, guid: 72867f2240ea94030bafe7c6af1ed15d, type: 2}
+  - {fileID: 11400000, guid: 9e286b09754154b91b1a71f1c65f9c14, type: 2}
+  - {fileID: 11400000, guid: 46662906be56a431e80d7e8b35bb0df0, type: 2}
+  - {fileID: 11400000, guid: c05275b2d17854fcb98c0b621a0c7037, type: 2}
 --- !u!114 &499747168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +377,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveHandler
   ResourceManager: {fileID: 499747168}
+--- !u!114 &499747170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499747163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e8c8402893076408ee602367bf4189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplierManager
+  upgradeManager: {fileID: 499747166}
 --- !u!1 &969383164
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,11 +3,15 @@ using UnityEngine;
 /// <summary>
 /// Catch chance and cost scaling math.
 /// </summary>
-public static class MultiplierManager
+
+
+public class MultiplierManager: MonoBehaviour
 {
     private const float BASE_CATCH_RATE = 0.7f;
+    private const float BASE_POWER = 1f;
+    public UpgradeManager upgradeManager;
 
-    public static float CalculateCatchChance(float catchDifficulty, float catchBonus)
+    public float CalculateCatchChance(float catchDifficulty, float catchBonus)
     {
         float chance = BASE_CATCH_RATE - catchDifficulty + catchBonus;
 
@@ -19,6 +23,13 @@ public static class MultiplierManager
 
         return chance;
     }
-    //TODO: market price scaling
-    //TODO: factor in luck from upgrades
+
+    public float CalculateClickPower(Target target)
+    {
+        float rand = Random.Range(0.25f,2f);
+        float click;
+        click = BASE_POWER * upgradeManager.GetMultiplier(target) * rand;
+        return click;
+    }
+ 
 }

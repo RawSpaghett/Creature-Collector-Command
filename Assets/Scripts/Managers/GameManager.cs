@@ -27,12 +27,6 @@ public partial class GameManager : MonoBehaviour
     {
         resourceManager.LogResources();
         StartNewCatch();
-
-
-        //Temporary catchers for testing passive income
-        HireCatcher(CreatureManager.CreatureType.RedCreature);
-        HireCatcher(CreatureManager.CreatureType.BlueCreature);
-        
     }
 
     private void Update()

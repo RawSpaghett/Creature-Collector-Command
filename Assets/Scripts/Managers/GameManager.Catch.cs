@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public partial class GameManager
 {
     public Creature currentCreature;
+    public MultiplierManager multiplierManager;
     public float catchProgress;
     public float progressNeeded;
     public bool catchActive;
@@ -65,10 +66,11 @@ public partial class GameManager
         if (!catchActive || currentCreature == null)
             return;
 
-        catchProgress += 1f;
-        Debug.Log("click +1, " + catchProgress + "/" + progressNeeded);
-        //TODO: finalize click power formula
-
+        if (colorToCatchTarget.TryGetValue(currentCreature.type, out Target catchTarget))
+        {
+            catchProgress += Mathf.Round(multiplierManager.CalculateClickPower(catchTarget));
+            Debug.Log("click +1, " + catchProgress + "/" + progressNeeded);
+        }
         if (catchProgress >= progressNeeded)
             CompleteCatch();
     }
