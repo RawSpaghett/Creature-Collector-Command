@@ -32,7 +32,6 @@ public partial class GameManager : MonoBehaviour
     private void Update()
     {
         creatureManager.ProgressUpdate();
-        
         TickGenerators(Time.deltaTime);
     }
 

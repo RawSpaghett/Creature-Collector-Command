@@ -19,7 +19,7 @@
                     <ui:VisualElement name="rCatchRate" class="UpgradeContainer" style="width: auto;">
                         <ui:Image source="project://database/Assets/Sprites/red-paw-print-md.png?fileID=2800000&amp;guid=7d70e2134d33545f88f487512e65bc4a&amp;type=3#red-paw-print-md" name="Upgrade1Sprite" class="upgrade" style="width: 62px;"/>
                         <ui:Label text="Red Catch Rate&#10;" name="Upgrade1Name" class="upgrade text" style="width: 104px;"/>
-                        <ui:Label text="0/0" name="rCatchLabel" class="upgrade text" style="width: 41px;"/>
+                        <ui:Label text="0/0" name="rCatchLabel" class="upgrade text" style="width: 41px; justify-content: center; align-self: center;"/>
                         <ui:Button text="Upgrade&#10;" name="rCatchButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
                     <ui:VisualElement name="bCatchRate" class="UpgradeContainer" style="width: auto;">
@@ -41,7 +41,7 @@
                         <ui:Button text="Upgrade&#10;" name="croinBoostButton" class="upgrade" style="height: auto; width: 106px; background-color: rgb(255, 255, 255); font-size: 14px;"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(0, 0, 0); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;); font-size: 15px; flex-direction: column; flex-wrap: nowrap; width: 115px;">
+                <ui:VisualElement name="CreaturePortrait" class="subcontainers" style="flex-grow: 1; background-color: rgb(0, 0, 0); cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#arrow-down&quot;); font-size: 15px; flex-direction: column; flex-wrap: nowrap; width: 1px;">
                     <ui:ProgressBar value="22" title="Catch Progress" name="CatchProgress"/>
                     <ui:Label text="Label" name="CreatureLabel" style="-unity-text-align: upper-center; background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#NotInter-Regular&quot;); font-size: 29px;"/>
                     <ui:Image source="project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&amp;guid=e6afc6c91105246ca836ef82e02648ad&amp;type=3#Remove@2x" name="CreatureImage" style="height: 440px; width: 408px; align-self: center;"/>
