@@ -95,9 +95,11 @@ public class GameEvents : MonoBehaviour //handles UI input
       //staff
       else
       {
+         button.text = gameManager.cost.ToString();
          button.clicked += () => 
         {
             label.text = customClickLogic.Invoke(); //runs staff lambda
+            button.text = gameManager.cost.ToString();
         };
       }
    }

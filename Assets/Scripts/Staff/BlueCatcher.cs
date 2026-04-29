@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class BlueCatcher : Generator
 {
-    public BlueCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval) : base(resourceManager, upgradeManager, interval)
+    public BlueCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval, float cost) : base(resourceManager, upgradeManager, interval,cost)
     {
     }
 

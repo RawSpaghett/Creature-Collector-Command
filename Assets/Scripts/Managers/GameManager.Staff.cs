@@ -6,6 +6,8 @@ public partial class GameManager: MonoBehaviour
     public int redCatchers;
     public int greenCatchers;
     public int blueCatchers;
+    public float cost = 500;
+    
 
     public void HireCatcher(CreatureManager.CreatureType color)
     {
@@ -15,16 +17,25 @@ public partial class GameManager: MonoBehaviour
         switch (color)
         {
             case CreatureManager.CreatureType.RedCreature:
-                catcher = new RedCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL);
-                redCatchers += 1;
+                if(TryHire(cost))
+                {
+                    catcher = new RedCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL,cost);
+                    redCatchers += 1;
+                }
                 break;
-            case CreatureManager.CreatureType.BlueCreature:
-                catcher = new BlueCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL);
-                blueCatchers += 1;
+            case CreatureManager.CreatureType.BlueCreature  :
+                if(TryHire(cost))
+                {
+                    catcher = new BlueCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL,cost);
+                    blueCatchers += 1;
+                }
                 break;
             case CreatureManager.CreatureType.GreenCreature:
-                catcher = new GreenCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL);
-                greenCatchers += 1;
+                if(TryHire(cost))
+                {
+                    catcher = new GreenCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL,cost);
+                    greenCatchers += 1;
+                }
                 break;
         }
 
@@ -36,8 +47,23 @@ public partial class GameManager: MonoBehaviour
         //TODO: add cost and scaling for hiring catchers
     }
 
-    public void Staff_UI_Update()
+    public bool TryHire(float cost)
     {
-        
+        Debug.Log("StaffPurchaseAttempt");
+        if(cost > resourceManager.GetResource(ResourceManager.ResourceType.Croins))
+        {
+            Debug.Log("Not Enough Croins");
+            return false;
+        }
+        else 
+        {
+            return true;
+            ExponentialCost();
+        }
+    }
+
+    public void ExponentialCost()
+    {
+        cost *= Random.Range(2.0f,3.0f);
     }
 }

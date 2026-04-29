@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 /// </summary>
 public class RedCatcher : Generator
 {
-    public RedCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval) : base(resourceManager, upgradeManager, interval)
+    public RedCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval, float cost) : base(resourceManager, upgradeManager, interval,cost)
     {
     }
 

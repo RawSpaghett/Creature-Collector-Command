@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class GreenCatcher : Generator
 {
-    public GreenCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval) : base(resourceManager, upgradeManager, interval)
+    public GreenCatcher(ResourceManager resourceManager, UpgradeManager upgradeManager, float interval, float cost) : base(resourceManager, upgradeManager, interval,cost)
     {
     }
 
