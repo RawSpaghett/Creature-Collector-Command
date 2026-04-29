@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+//the most difficult script in the entire project
 public class GameEvents : MonoBehaviour //handles UI input
 {
    private UIDocument UIDocGame; // references our main menu doc
@@ -15,24 +16,6 @@ public class GameEvents : MonoBehaviour //handles UI input
    public UpgradeManager upgradeManager;
    private Upgrade upgrade;
 
-//===================== NOT EFFICIENT
-   private Button rUpgradeButton;
-   private Label rUpgradeLabel;
-   private Button gUpgradeButton;
-   private Label gUpgradeLabel;
-   private Button bUpgradeButton;
-   private Label bUpgradeLabel;
-   private Button croinUpgradeButton;
-   private Label croinsUpgradeLabel;
-   
-   private Button rStaffButton;
-   private Label rStaffCount;
-
-   private Button gStaffButton;
-   private Label gStaffCount;
-
-   private Button bStaffButton;
-   private Label bStaffCount;
    //=====================
 
     public static event Action playerCreatureClick;
@@ -59,50 +42,67 @@ public class GameEvents : MonoBehaviour //handles UI input
       UIButton = root.Q("ClickZone"); //grab clickzone
       UIButton.RegisterCallback<ClickEvent>(OnCreatureClick);
 
-      //By NO means efficient
-      //Upgrade buttons and labels
-      rUpgradeButton = root.Q<Button>("rCatchButton");  //red
-      rUpgradeButton.clicked += () => {
-         Upgrade upgrade = upgradeManager.GetUpgrade("Red Catch Rate I");
-         upgradeManager.PurchaseUpgrade(upgrade);
-         };
-      rUpgradeLabel = root.Q<Label>("rCatchLabel");
+      SetupButton("rCatchButton","rCatchLabel","Red Catch Rate I");
 
-      gUpgradeButton = root.Q<Button>("gCatchButton"); //green
-      gUpgradeButton.clicked += () => {
-         Upgrade upgrade = upgradeManager.GetUpgrade("Green Catch Rate I");
-         upgradeManager.PurchaseUpgrade(upgrade);
-         };
-      gUpgradeLabel = root.Q<Label>("gCatchLabel");
+      SetupButton("gCatchButton","gCatchLabel","Green Catch Rate I");
+      
+      SetupButton("bCatchButton","bCatchLabel","Blue Catch Rate I");
 
-      bUpgradeButton = root.Q<Button>("bCatchButton"); //blue
-      bUpgradeButton.clicked += () => {
-         Upgrade upgrade = upgradeManager.GetUpgrade("Blue Catch Rate I");
-         upgradeManager.PurchaseUpgrade(upgrade);
-         };
-      bUpgradeLabel = root.Q<Label>("bCatchLabel");
+      SetupButton("croinBoostButton","croinBoostLabel","Gold Boost I");
+      
+      //====== Staff ====
+      SetupButton("rCatcherButton","rCatcherLabel",
+      null,
+      () => {
+         gameManager.HireCatcher(CreatureManager.CreatureType.RedCreature);
+         return gameManager.redCatchers.ToString();
+      });
 
-      croinUpgradeButton = root.Q<Button>("croinBoostButton"); //croins
-      croinUpgradeButton.clicked += () => {
-         Upgrade upgrade = upgradeManager.GetUpgrade("Gold Boost I");
-         upgradeManager.PurchaseUpgrade(upgrade);
-         };
-      croinsUpgradeLabel = root.Q<Label>("croinBoostLabel");
+      SetupButton("bCatcherButton","bCatcherLabel",
+      null,
+      () => {
+         gameManager.HireCatcher(CreatureManager.CreatureType.BlueCreature);
+         return gameManager.blueCatchers.ToString();
+      });
 
-      //By NO means efficient
-      //Staff buttons and labels
-      rStaffButton = root.Q<Button>("rCatcherButton"); 
-      rStaffButton.clicked += () => gameManager.HireCatcher(CreatureManager.CreatureType.RedCreature);
-      rStaffCount = root.Q<Label>("rCatcherLabel");
-
-      bStaffButton = root.Q<Button>("bCatcherButton"); 
-      bStaffButton.clicked += () => gameManager.HireCatcher(CreatureManager.CreatureType.BlueCreature);
-      bStaffCount = root.Q<Label>("bCatcherLabel");
-
-      gStaffButton = root.Q<Button>("gCatcherButton"); 
-      gStaffButton.clicked += () => gameManager.HireCatcher(CreatureManager.CreatureType.GreenCreature);
-      gStaffCount = root.Q<Label>("gCatcherLabel");
+      SetupButton("gCatcherButton","gCatcherLabel",
+      null,
+      () => {
+         gameManager.HireCatcher(CreatureManager.CreatureType.GreenCreature);
+         return gameManager.greenCatchers.ToString();
+      });
    }
+
+   void SetupButton(string buttonName, string labelName,string upgradeName = null, System.Func<string> customClickLogic = null) //a bit wonky
+   {
+      VisualElement root = UIDocGame.rootVisualElement;
+      Button button = root.Q<Button>(buttonName);
+      Label label = root.Q<Label>(labelName);
+
+      //Upgrades
+      if(upgradeName != null)
+      {
+         Upgrade upgrade = upgradeManager.GetUpgrade(upgradeName);
+         button.text = upgrade.Cost.ToString();
+         label.text = upgrade.State.ToString(); //available
+
+          button.clicked += () => 
+         {
+            upgradeManager.PurchaseUpgrade(upgrade);
+            label.text = upgrade.State.ToString(); //unavailable
+         };
+      }
+      //staff
+      else
+      {
+         button.clicked += () => 
+        {
+            label.text = customClickLogic.Invoke(); //runs staff lambda
+        };
+      }
+   }
+
+
 
    void OnCreatureClick(ClickEvent evt) 
    {
@@ -121,7 +121,7 @@ public class GameEvents : MonoBehaviour //handles UI input
       
    }
 
-   void Update()
+   void Update() //performace murderer
    {
 
       //resources
@@ -129,21 +129,6 @@ public class GameEvents : MonoBehaviour //handles UI input
       rCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.RCreatures).ToString()}");
       bCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.BCreatures).ToString()}");
       gCreatureLabel.text =($"{resources.GetResource(ResourceManager.ResourceType.GCreatures).ToString()}");
-
-      //Upgrades
-      upgrade = upgradeManager.GetUpgrade("Red Catch Rate I");
-      rUpgradeLabel.text = ($"{upgrade.State.ToString()}");
-      upgrade = upgradeManager.GetUpgrade("Green Catch Rate I");
-      gUpgradeLabel.text = ($"{upgrade.State.ToString()}");
-      upgrade = upgradeManager.GetUpgrade("Blue Catch Rate I");
-      bUpgradeLabel.text = ($"{upgrade.State.ToString()}");
-      upgrade = upgradeManager.GetUpgrade("Gold Boost I");
-      croinsUpgradeLabel.text = ($"{upgrade.State.ToString()}");
-
-      //Staff
-      rStaffCount.text = ($"{gameManager.redCatchers.ToString()}");
-      gStaffCount.text = ($"{gameManager.greenCatchers.ToString()}");
-      bStaffCount.text = ($"{gameManager.blueCatchers.ToString()}");
    }
 
 }

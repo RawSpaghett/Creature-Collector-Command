@@ -26,10 +26,9 @@ public class UpgradeManager : MonoBehaviour
     private Dictionary<string,Upgrade> Upgrades = new Dictionary<string,Upgrade>();
     public ResourceManager resourceManager;
 
-    private void Start()
+    private void OnEnable()
     {
         InitializeUpgrades();
-        LogUpgrades();
     }
 
     private void InitializeUpgrades() //hardcoded, alternative would use scriptable objects

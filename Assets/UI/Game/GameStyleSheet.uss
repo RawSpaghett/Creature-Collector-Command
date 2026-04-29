@@ -65,7 +65,7 @@ VisualElement {
     border-right-width: 0;
     width: 150px;
     padding-left: 0;
-    margin-left: 24px;
+    margin-left: 25px;
     font-size: 24px;
     margin-right: 30px;
     aspect-ratio: auto;
@@ -90,8 +90,17 @@ VisualElement {
     margin-bottom: 20px;
 }
 
-.text {
+.textcolor {
     background-color: rgba(0, 0, 0, 0);
     color: rgb(255, 255, 255);
     font-size: 24px;
+}
+
+.upgradetext {
+    margin-left: 22px;
+    margin-right: 81px;
+}
+
+.upgradebuttons {
+    margin-left: 64px;
 }
