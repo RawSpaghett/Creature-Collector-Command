@@ -44,7 +44,6 @@ public partial class GameManager: MonoBehaviour
             generators.Add(catcher);
             Debug.Log("hired " + color + " catcher, total generators: " + generators.Count);
         }
-        //TODO: add cost and scaling for hiring catchers
     }
 
     public bool TryHire(float cost)
@@ -57,8 +56,10 @@ public partial class GameManager: MonoBehaviour
         }
         else 
         {
-            return true;
+            resourceManager.SpendResource(ResourceManager.ResourceType.Croins, cost);
             ExponentialCost();
+            return true;
+
         }
     }
 

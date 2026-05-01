@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Holds all upgrades and handles purchasing and multiplier lookups.
@@ -55,6 +56,17 @@ public class UpgradeManager : MonoBehaviour
         if (Upgrades.ContainsKey(name))
             return Upgrades[name];
         return null;
+    }
+
+    public List<string> GetPurchasedUpgrades()
+    {
+        List<string> names = new List<string>();
+        foreach (var kvp in Upgrades)
+        {
+            if (kvp.Value.State == UpgradeState.Purchased)
+                names.Add(kvp.Key);
+        }
+        return names;
     }
 
     // Stacks all purchased multipliers for a given target, returns 1 if nothing applies

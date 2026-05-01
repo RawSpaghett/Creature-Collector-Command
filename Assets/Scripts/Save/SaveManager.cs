@@ -10,6 +10,8 @@ public class SaveHandler: MonoBehaviour
     private string _dataPath;
     private string _jsonFile;
     public ResourceManager ResourceManager;
+    public UpgradeManager UpgradeManager;
+    public GameManager GameManager;
 
     void Awake() //from the slides
     {
@@ -28,6 +30,7 @@ public class SaveHandler: MonoBehaviour
             LoadData();
         }
     }
+    
 
     void OnApplicationQuit()
     {
@@ -39,7 +42,11 @@ public class SaveHandler: MonoBehaviour
                 rCreatures = ResourceManager.GetResource(ResourceManager.ResourceType.RCreatures),
                 bCreatures = ResourceManager.GetResource(ResourceManager.ResourceType.BCreatures),
                 gCreatures = ResourceManager.GetResource(ResourceManager.ResourceType.GCreatures),
-                totalCreatures = ResourceManager.GetResource(ResourceManager.ResourceType.TotalCreatures)
+                totalCreatures = ResourceManager.GetResource(ResourceManager.ResourceType.TotalCreatures),
+                purchasedUpgrades = UpgradeManager.GetPurchasedUpgrades(),
+                redCatchers = GameManager.GetCatcherCount(CreatureManager.CreatureType.RedCreature),
+                blueCatchers = GameManager.GetCatcherCount(CreatureManager.CreatureType.BlueCreature),
+                greenCatchers = GameManager.GetCatcherCount(CreatureManager.CreatureType.GreenCreature)
             };
 
             string json = JsonUtility.ToJson(state, true);
@@ -49,7 +56,7 @@ public class SaveHandler: MonoBehaviour
         }
         catch(Exception e)
         {
-             Debug.LogError("<Color=Red> Critical OnApplicationQuit Error!</Color>");
+             Debug.LogError("<Color=Red> Critical OnApplicationQuit Error!</Color>" + e.Message);
         }
     }
 
@@ -65,6 +72,13 @@ public class SaveHandler: MonoBehaviour
             ResourceManager.AddResource(ResourceManager.ResourceType.BCreatures,state.bCreatures);
             ResourceManager.AddResource(ResourceManager.ResourceType.GCreatures,state.gCreatures);
             ResourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures,state.totalCreatures);
+            
+           // store upgrades and catchers that were purchased so they can be restored 
+            if(state.purchasedUpgrades != null)
+            GameManager.savedUpgrades = state.purchasedUpgrades;
+            GameManager.savedRedCatchers = state.redCatchers;
+            GameManager.savedBlueCatchers = state.blueCatchers;
+            GameManager.savedGreenCatchers = state.greenCatchers;
             Debug.Log("<Color=Green>Save Data Loaded</Color>");
         }
         catch (Exception e)
@@ -87,6 +101,12 @@ public class SaveData
     public float totalCreatures;
 
     //upgrades
+    public List<string> purchasedUpgrades = new List<string>();
+
+    // staff
+    public int redCatchers;
+    public int blueCatchers;
+    public int greenCatchers;
 
 }
 
