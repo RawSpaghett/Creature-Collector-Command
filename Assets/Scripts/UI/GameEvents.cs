@@ -89,7 +89,8 @@ public class GameEvents : MonoBehaviour //handles UI input
           button.clicked += () => 
          {
             upgradeManager.PurchaseUpgrade(upgrade);
-            label.text = upgrade.State.ToString(); //unavailable
+            label.text = "Lv" + upgrade.Level;
+            button.text = upgrade.Cost.ToString();
          };
       }
       //staff

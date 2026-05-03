@@ -34,10 +34,16 @@ public partial class GameManager : MonoBehaviour
         // retore upgrades and catchers from save
         for(int i = 0; i < savedUpgrades.Count; i++)
         {
-            Upgrade upgrade = upgradeManager.GetUpgrade(savedUpgrades[i]);
-            if(upgrade != null)
-                upgrade.SetState(UpgradeState.Purchased);
+            string[] parts = savedUpgrades[i].Split(':');
+            if (parts.Length == 2)
+            {
+                Upgrade upgrade = upgradeManager.GetUpgrade(parts[0]);
+                int level = int.Parse(parts[1]);
+                if (upgrade != null)
+                    upgrade.SetLevel(level);
+            }
         }
+        
         for(int i = 0; i < savedRedCatchers; i++)
             generators.Add(new RedCatcher(resourceManager, upgradeManager, BASE_CATCH_INTERVAL, cost));
         for(int i = 0; i < savedBlueCatchers; i++)

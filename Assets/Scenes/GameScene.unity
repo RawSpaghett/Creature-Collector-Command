@@ -297,6 +297,14 @@ MonoBehaviour:
   catchActive: 0
   resourceManager: {fileID: 499747168}
   creatureManager: {fileID: 499747167}
+  savedUpgrades: []
+  savedRedCatchers: 0
+  savedBlueCatchers: 0
+  savedGreenCatchers: 0
+  redCatchers: 0
+  greenCatchers: 0
+  blueCatchers: 0
+  cost: 500
   upgradeManager: {fileID: 499747166}
 --- !u!4 &499747165
 Transform:
@@ -377,6 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveHandler
   ResourceManager: {fileID: 499747168}
+  UpgradeManager: {fileID: 499747166}
+  GameManager: {fileID: 499747164}
 --- !u!114 &499747170
 MonoBehaviour:
   m_ObjectHideFlags: 0

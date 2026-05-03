@@ -21,8 +21,120 @@ public class UpgradeEvent:EventBase<UpgradeEvent> //allows for bubbling, accessi
         return evt;
     }
 }
-
 public class UpgradeManager : MonoBehaviour
+{
+    private Dictionary<string,Upgrade> Upgrades = new Dictionary<string,Upgrade>();
+    public ResourceManager resourceManager;
+ 
+    private void OnEnable()
+    {
+        InitializeUpgrades();
+    }
+ 
+    private void InitializeUpgrades()
+    {
+        Debug.Log("InitializeUpgrades");
+ 
+        void AddUpgrade(Upgrade u) => Upgrades.Add(u.Name,u);
+ 
+        // Each upgrade is rebuyable, cost scales with level
+        AddUpgrade(new Upgrade("Red Catch Rate I", 50f, 1.4f, new UpgradeEffect(0.2f, Target.CatchRateR), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Green Catch Rate I", 50f, 1.4f, new UpgradeEffect(0.2f, Target.CatchRateG), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Blue Catch Rate I", 50f, 1.4f, new UpgradeEffect(0.2f, Target.CatchRateB), 1, UpgradeState.Available));
+        AddUpgrade(new Upgrade("Gold Boost I", 75f, 1.5f, new UpgradeEffect(0.3f, Target.GoldGain), 1, UpgradeState.Available));
+    }
+ 
+    public Upgrade GetUpgrade(string name)
+    {
+        if (Upgrades.ContainsKey(name))
+            return Upgrades[name];
+        return null;
+    }
+ 
+    public List<string> GetPurchasedUpgrades()
+    {
+        List<string> data = new List<string>();
+        foreach (var kvp in Upgrades)
+        {
+            if (kvp.Value.Level > 0)
+                data.Add(kvp.Key + ":" + kvp.Value.Level);
+        }
+        return data;
+    }
+ 
+    // Returns total multiplier for a target based on upgrade level
+    public float GetMultiplier(Target target)
+    {
+        float total = 1f;
+        
+        foreach (var upgrade in Upgrades.Values)
+        {
+            if (target == upgrade.Effect.Target && upgrade.Level > 0)
+            {
+                total += upgrade.Effect.Multiplier * upgrade.Level;
+            }
+        }
+        return total;
+    }
+ 
+    public bool PurchaseAttempt(Upgrade upgrade,out string errorMessage)
+    {
+        Debug.Log("PurchaseAttempt");
+        if(upgrade.Cost > resourceManager.GetResource(ResourceManager.ResourceType.Croins))
+        {
+            errorMessage = "Not Enough Croins!";
+            return false;
+        }
+        errorMessage = string.Empty;
+        return true;
+    }
+ 
+    public void PurchaseUpgrade(Upgrade upgrade)
+    {
+        Debug.Log("PurchaseUpgrade");
+ 
+        if(PurchaseAttempt(upgrade, out string errorMessage))
+        {
+            resourceManager.SpendResource(ResourceManager.ResourceType.Croins, upgrade.Cost);
+            upgrade.LevelUp();
+            Debug.Log("purchased " + upgrade.Name + " lv" + upgrade.Level + ", " + upgrade.Effect.Target + " multiplier now " + GetMultiplier(upgrade.Effect.Target));
+        }
+        else
+        {
+            Debug.Log($"Error: {errorMessage}");
+        }
+    }
+ 
+    // Flips all locked upgrades at the given tier to available
+    public void UnlockTier(int tier)
+    {
+        Debug.Log("UnlockTier");
+         foreach (var upgrade in Upgrades.Values)
+        {
+            if (upgrade.Tier == tier && upgrade.State == UpgradeState.Locked)
+            {
+                upgrade.SetState(UpgradeState.Available);
+                Debug.Log("unlocked " + upgrade.Name);
+            }
+        }
+    }
+ 
+    public void LogUpgrades()
+    {
+        Debug.Log("LogUpgrades");
+        string output = "--- upgrades ---\n";
+        //print upgrades
+        Debug.Log(output);
+    }
+ 
+    public void UpdateUpgradeUI()
+    {
+ 
+    }
+}
+
+    /* Davis: Commenting it in case i somehow mess everything up
+    public class UpgradeManager : MonoBehaviour
 {
     private Dictionary<string,Upgrade> Upgrades = new Dictionary<string,Upgrade>();
     public ResourceManager resourceManager;
@@ -145,3 +257,4 @@ public class UpgradeManager : MonoBehaviour
 
     }
 }
+    */

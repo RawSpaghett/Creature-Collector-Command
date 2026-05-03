@@ -1,9 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-/// <summary>
-/// Wires the upgrade sydtem to the UI
-/// </summary>
+// Wires the upgrade buttons to the purchase system
 public class UpgradeUI : MonoBehaviour
 {
     public UpgradeManager upgradeManager;
@@ -61,9 +59,6 @@ public class UpgradeUI : MonoBehaviour
 
     private void UpdateStatus()
     {
-        if (upgrade1.State == UpgradeState.Purchased)
-            upgrade1Status.text = "Purchased";
-        else
-            upgrade1Status.text = "$" + upgrade1.Cost;
+        upgrade1Status.text = "Lv" + upgrade1.Level + " $" + upgrade1.Cost;
     }
 }
