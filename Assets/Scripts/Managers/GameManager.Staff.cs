@@ -65,6 +65,6 @@ public partial class GameManager: MonoBehaviour
 
     public void ExponentialCost()
     {
-        cost *= Random.Range(2.0f,3.0f);
+        cost = Mathf.Round(cost * Random.Range(2.0f, 3.0f));
     }
 }

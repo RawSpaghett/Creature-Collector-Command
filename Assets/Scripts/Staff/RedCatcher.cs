@@ -15,9 +15,18 @@ public class RedCatcher : Generator
         float amount = 1f;
         float multiplier = upgradeManager.GetMultiplier(Target.CatchRateR);
         resourceManager.ApplyBonus(ref amount, multiplier);
+        amount = Mathf.Floor(amount);
+        if (amount < 1f) amount = 1f;
         resourceManager.AddResource(ResourceManager.ResourceType.RCreatures, amount);
         resourceManager.AddResource(ResourceManager.ResourceType.TotalCreatures, amount);
-        Debug.Log("Red catcher +" + amount);
+
+        // croin roll on each passive catch
+        if (Random.Range(0f, 1f) <= 0.5f)
+        {
+            float croins = Mathf.Round(10f * upgradeManager.GetMultiplier(Target.GoldGain));
+            resourceManager.AddResource(ResourceManager.ResourceType.Croins, croins);
+        }
+
+        Debug.Log("red catcher +" + amount);
     }
-    // TODO: plug all the generators into the upgrade system
 }
